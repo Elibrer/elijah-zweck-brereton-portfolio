@@ -26,7 +26,7 @@ const App = () => {
             <ul className="p-0">
               <li className={isSelected === "home" ? "selected" : ""}>
                 <NavLink to="/" onClick={() => setIsSelected("home")}>
-                  <div className="d-flex flex-column justfiy-content-center align-items-center ">
+                  <div className="navEl d-flex flex-column justfiy-content-center align-items-center ">
                     <i className="fa fa-home" style={{ fontSize: "2em" }}></i>
                     <h1>HOME</h1>
                   </div>
@@ -72,7 +72,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-          <footer>
+          <div className="footerCard">
             <div>
               <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/eli-brereton-172444164">
                 <img src={linkedinLogo} alt="linkedIn logo"/>
@@ -82,7 +82,7 @@ const App = () => {
               </a>
             </div>
             <h6 id="footerText">© 2023 - Portfolio developed by Elijah 'Zweck' Brereton</h6>
-          </footer>
+          </div>
         </div>
       </div>
     </HashRouter>

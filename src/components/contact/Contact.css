@@ -73,6 +73,10 @@ li a:hover {
     text-shadow: 0 0 20px var(--med);
 }
 
+li a:not(:hover) {
+    transition: all 1s ease-out;
+}
+
 /*-----------------------Contact - Input------------------------*/
 
 #inputContainer {
@@ -155,4 +159,39 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #057373;
+}
+
+
+@media screen and (max-width: 600px) {
+    #contact-card {
+        width: 100%;
+    }
+    #inputContainer {
+        width: 100%;
+    }
+    .inputStyle {
+        width: 100%;
+    }
+    .cardInputs {
+        flex-direction: column;
+    }
+    .inputTypes {
+        width: 100%;
+    }
+    .ctcards {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #contact-card {
+        width: 100%;
+    }
+    .inputTypes {
+        width: 100%;
+    }
+    .ctcards {
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -3,10 +3,19 @@
   padding: 0;
   margin: 0;
 }
+html, body, #root {
+  height: 100%;
+  width: 100%;
+
+}
+
 html {
   width: 100%;
 }
 
+ul {
+  list-style-type: none;
+}
 
 :root {
   --dark: #151515;
@@ -16,9 +25,7 @@ html {
   --meddark: #0bd3d3;
   --oj: #fff568;
   --light: #d0d0d0;
-  /* --light: #e6e6e6; */
   --lightbg: #f1f1f1;
-  /* --lightbg: #b0b0b0; */
   --medcar: #223647;
   --black: #0d0d0d;
   --white: #e0e0e0;
@@ -45,18 +52,20 @@ h1, i {
 }
 
 .sideNav {
-  background-color: var(--dark);
+  background-color: var(--darkbg);
 }
 
 .selected {
   background-color: var(--darker);
 }
 
+nav ul li a {
+  transition: background-color 0.8s ease;
+}
+
 nav ul li a:hover,
 nav ul li:hover {
-  transition: 0.8s;
   background-color: var(--darker);
-
   cursor: pointer;
   height: 100%;
   align-items: center;
@@ -66,8 +75,7 @@ nav ul li:hover {
   width: 100%;
 }
 
-
-footer {
+.footerCard {
   background-color: var(--darker);
   display: flex;
   justify-content: center;
@@ -82,10 +90,14 @@ footer {
   font-size: 12px;
 }
 
-footer img {
+.footerCard img {
   width: 20px;
   height: 20px;
   margin: 0px 5px;
   margin-bottom: 5px;
   color: var(--med);
+}
+
+.navEl {
+  width: 120px;
 }

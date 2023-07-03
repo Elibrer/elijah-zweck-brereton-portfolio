@@ -1,6 +1,7 @@
 
 #home {
     height: calc(100vh - 45px);
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,9 +51,7 @@
     width:30vw;
     border-radius:50%
 }
-.imgCard:not(:hover) {
-    transition: all 1s ease-out;
-}
+
 .imgCard {
     border-style: solid;
     border-width: 6px;
@@ -61,7 +60,7 @@
     flex: 0 0 100px;
     border-radius: 50%;
     color: var(--meddark);
-  }
+}
 
 .imgCard:hover {
     transition: all 1s ease-in-out;

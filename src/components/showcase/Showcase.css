@@ -1,65 +1,80 @@
 .showcase {
-    background-color: var(--darkbg);
-    height: 100vh;    
-    width:100vw;
-    overflow:hidden;
-    height:auto;
-    padding:1vw
+  background-color: var(--darker);
+  height: calc(100vh - 45px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.showcase-items {
-    display: flex;
-    position:relative;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    justify-content: center;
-    align-items: center;
+.showcaseCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 100%;
+  overflow: auto;
+  padding: 10px;
 }
 
-.showcase-cards {
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 1.5rem;
-    transition: flex-basis 500ms linear;
-    margin-bottom: 1.5rem;
-    margin-top:1.5rem;
-    flex-basis: 40vw;
-    flex-grow: 0;
-    flex-shrink: 0;
-    min-height: 40vw;
+.sccards {
+  position: relative;
+  height: 400px;
+  width: 300px;
+  margin: 10px;
+
+  border: 1px solid var(--light);
 }
 
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--meddark);
-    flex-grow:0;
+.showcaseImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding: 10px;
+  opacity: 1;
+  transition: opacity 0.5s linear;
 }
 
-.item h2 {
-    position: relative;
-    margin: -3rem 0 1.5rem 0;
-    padding: 0.5rem 1rem;
-    background-color: var(--darkbg);
-    color: var(--meddark);
-    border: 2px solid var(--white);
-    border-radius: 8px;
+.sccards .card-buttons {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s linear;
 }
 
-.sc-image {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
+.showcaseImg:hover, .sccards:hover .showcaseImg {
+  opacity: 0.2;
+}
 
-.sc-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.sccards:hover .card-buttons {
+  opacity: 1;
+}
+
+.sccards .card-buttons a {
+  width: 100%;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  /* background-color: var(--dark); */
+  color: white;
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.iconImg {
+  height: 30px;
+  width: 30px;
+}
+/* 
+.sccards .card-buttons button:hover {
+  background-color: var(--meddark);
+} */

@@ -18,7 +18,7 @@ const About = () => {
             I'm Eli, a full-stack developer based in Adelaide specialising in the MERN software stack, which includes MongoDb, Express.js, React, and Node.js. I'm
             passionate about learning, and I believe that increasing my
             knowledge and skills provides me with the tools to give my clients
-            the best possible service. Fill out the form below if you'd like to
+            the best possible service. Fill out the form in the contact page if you'd like to
             get in contact with me.
           </p>
         </div>
