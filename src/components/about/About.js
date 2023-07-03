@@ -3,6 +3,7 @@ import React from "react";
 
 import aboutImage from "../../assets/images/eli-full.JPEG";
 
+
 const About = () => {
   return (
     <section className="about" id="about">

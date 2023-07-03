@@ -5,7 +5,7 @@ p {
 
 h5 {
     font-family:'Prompt', Helvetica, sans-serif;
-    font-size:15px;
+    font-size:20px;
     color:var(--white);
     font-weight: 400;
     margin: 0 5px;
@@ -24,7 +24,7 @@ h6 {
     background-color: var(--darker);
     overflow:hidden;
     height: calc(100vh - 45px);
-    padding-top: 50px;
+    padding-top: 150px;
 }
 
 .ctcards {
@@ -35,32 +35,34 @@ h6 {
 
 /*------------------Contact Details---------------------*/
 
-#contact-card {
+#contact-card-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height:auto;
-    width:25%;
+    width:50%;
     color:var(--med);
 }
 
+.contact-card {
+    width: 100%;
+}
 
-
-#contact-card div {
+#contact-card-container div {
     width:auto;
     color: var(--white);
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 100;
 }
 
 .detailsHeader {
     width:100%;
     font-weight:900;
-    font-size: 24px;
+    font-size: 60px;
 }
 
 
-#contact-card div p a:link, #contact-card div p a:visited {
+#contact-card-container div p a:link, #contact-card div p a:visited {
     color: var(--white);
 }
 
@@ -77,6 +79,16 @@ li a:not(:hover) {
     transition: all 1s ease-out;
 }
 
+.socialLogo {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px;
+    margin-bottom: 5px;
+    color: var(--med);
+}
+
+
+
 /*-----------------------Contact - Input------------------------*/
 
 #inputContainer {
@@ -85,14 +97,14 @@ li a:not(:hover) {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-evenly;
-
+    width: 50%;
     padding:10px;
     border-radius: 5px;
 }
 
 .inputTypes {
     width:100%;
-    padding: 5px 0px;
+    padding: 10px 0px;
     margin:0;
 
 }
@@ -115,7 +127,7 @@ li a:not(:hover) {
 
 span {
     font-family:'Prompt', Helvetica, sans-serif;
-    font-size:10px;
+    font-size:20px;
     color:var(--med);
     font-weight: 200;
     margin: 0 5px;

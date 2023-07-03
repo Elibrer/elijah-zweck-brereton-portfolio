@@ -7,13 +7,12 @@ import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 
 import zLogo from "./assets/images/zLogo.png";
-import instaLogo from "./assets/images/ig.png";
-import linkedinLogo from "./assets/images/linkedin.png";
+
 
 const App = () => {
   const [isSelected, setIsSelected] = useState("home");
 
-  
+
   return (
     <HashRouter>
       <div className="main d-flex flex-row ">
@@ -74,14 +73,6 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <div className="footerCard">
-            <div>
-              <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/eli-brereton-172444164">
-                <img src={linkedinLogo} alt="linkedIn logo"/>
-              </a>
-              <a rel="noopener noreferrer" target="_blank" href="https://instagram.com/mrzweck">
-                <img src={instaLogo} alt="instagram logo"/>
-              </a>
-            </div>
             <h6 id="footerText">© 2023 - Portfolio developed by Elijah 'Zweck' Brereton</h6>
           </div>
         </div>

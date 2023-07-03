@@ -1,12 +1,17 @@
 import React from "react";
 import "./Contact.css";
 
+import instaLogo from "../../assets/images/ig.png";
+import linkedinLogo from "../../assets/images/linkedin.png";
+import resumeIcon from "../../assets/images/resumeIcon.png";
+import githubIcon from "../../assets/images/githubLogo.png";
+
 const Contact = () => {
   return (
     <section className="contact">
       <div className="ctcards container">
-        <section id="contact-card">
-          <div>
+        <section id="contact-card-container">
+          <div className="contact-card">
             <p className="detailsHeader">Contact Details</p>
             <p>Elijah Brereton</p>
             <p>
@@ -16,7 +21,17 @@ const Contact = () => {
             <p>
               Ph. :<a rel="noopener noreferrer" target="_blank" href="tel:+61423047693"> 0423 047 693</a>
             </p>
+            <p>GitHub:<a rel="noopener noreferrer" target="_blank" href="https://github.com/elibrer"><img src={githubIcon} alt="GitHub icon" className="socialLogo"/></a></p>
+            <p>LinkedIn:<a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/eli-brereton-172444164">
+                <img src={linkedinLogo} alt="linkedIn logo" className="socialLogo"/>
+              </a></p>
+              <p>Instagram:<a rel="noopener noreferrer" target="_blank" href="https://instagram.com/mrzweck">
+                <img src={instaLogo} alt="instagram logo" className="socialLogo"/>
+              </a></p>
+            <p>Resume:<a rel="noopener noreferrer" target="_blank"  href="https://docs.google.com/document/d/12phLBkwi58gwgJyhvMnLK1zqO_k1pYhpQmv9rfihqJ4/edit?usp=sharing"><img src={resumeIcon} alt="Resume icon" className="socialLogo"/></a></p>
+            
           </div>
+          
         </section>
         <section id="inputContainer">
           <figure className="inputTypes">

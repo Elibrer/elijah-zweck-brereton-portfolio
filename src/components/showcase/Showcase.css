@@ -40,7 +40,7 @@
 .sccards .card-buttons {
   width: 100%;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -48,7 +48,7 @@
 }
 
 .showcaseImg:hover, .sccards:hover .showcaseImg {
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 .sccards:hover .card-buttons {
@@ -60,19 +60,18 @@
   display: inline-block;
   margin: 5px;
   padding: 10px 20px;
-  /* background-color: var(--dark); */
   color: white;
   font-weight: bolder;
   border: none;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 70px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .iconImg {
-  height: 30px;
-  width: 30px;
+  height: 200px;
+  width: 200px;
 }
 /* 
 .sccards .card-buttons button:hover {
