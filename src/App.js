@@ -13,6 +13,7 @@ import linkedinLogo from "./assets/images/linkedin.png";
 const App = () => {
   const [isSelected, setIsSelected] = useState("home");
 
+  
   return (
     <HashRouter>
       <div className="main d-flex flex-row ">

@@ -10,14 +10,14 @@ import githubIcon from "../../assets/images/githubLogo.png";
 const Showcase = () => {
   return (
     <section className="showcase" id="showcase">
-      <section className="container showcaseCards">
+      <section className="showcaseCards">
         <div className="sccards">
           <img
             className="showcaseImg"
             src={zweckTechBlog}
             alt="Sports Team Manager landing/login page with video display of various sports as background."
           />
-          <div className="card-buttons d-flex flex-row">
+          <div className="card-buttons d-flex flex-column text-center">
             <a
               rel="noopener noreferrer"
               target="_blank"

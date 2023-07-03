@@ -14,7 +14,7 @@ const About = () => {
         <h3>About</h3>
         <h4>Full-stack | HTML, CSS, JavaScript</h4>
         <div>
-          <p>
+          <p className="aboutContent">
             I'm Eli, a full-stack developer based in Adelaide specialising in the MERN software stack, which includes MongoDb, Express.js, React, and Node.js. I'm
             passionate about learning, and I believe that increasing my
             knowledge and skills provides me with the tools to give my clients
