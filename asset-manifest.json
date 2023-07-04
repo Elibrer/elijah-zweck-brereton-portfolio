@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/elijah-zweck-brereton-portfolio/static/css/main.234addbb.css",
-    "main.js": "/elijah-zweck-brereton-portfolio/static/js/main.fa84eb0e.js",
+    "main.css": "/elijah-zweck-brereton-portfolio/static/css/main.6efc00be.css",
+    "main.js": "/elijah-zweck-brereton-portfolio/static/js/main.c39942d2.js",
     "static/media/eli-full.JPEG": "/elijah-zweck-brereton-portfolio/static/media/eli-full.6c17b410590e0786097f.JPEG",
     "static/media/outfit-forecast.png": "/elijah-zweck-brereton-portfolio/static/media/outfit-forecast.e9a236992fb259812b5c.png",
     "static/media/sports-team-manager.png": "/elijah-zweck-brereton-portfolio/static/media/sports-team-manager.8e391782849acd1a5f50.png",
     "static/media/weathering-heights.png": "/elijah-zweck-brereton-portfolio/static/media/weathering-heights.28d276cbf24f2530d7c4.png",
     "static/media/ig.png": "/elijah-zweck-brereton-portfolio/static/media/ig.40755e0b3091e33847b1.png",
     "static/media/zLogo.png": "/elijah-zweck-brereton-portfolio/static/media/zLogo.f4a0da88ec0177e33bc4.png",
+    "static/media/socialNetworkApi.png": "/elijah-zweck-brereton-portfolio/static/media/socialNetworkApi.ce62028a80adefa4ef34.png",
     "static/media/zweck-tech-login.png": "/elijah-zweck-brereton-portfolio/static/media/zweck-tech-login.07598bc374394a104b92.png",
     "static/media/linkedin.png": "/elijah-zweck-brereton-portfolio/static/media/linkedin.45403bbe97c75d160afc.png",
+    "static/media/pwaapp.png": "/elijah-zweck-brereton-portfolio/static/media/pwaapp.ed4096418b7013795d7e.png",
     "static/media/githubLogo.png": "/elijah-zweck-brereton-portfolio/static/media/githubLogo.ed1c06d925fff0b57e32.png",
     "index.html": "/elijah-zweck-brereton-portfolio/index.html",
-    "main.234addbb.css.map": "/elijah-zweck-brereton-portfolio/static/css/main.234addbb.css.map",
-    "main.fa84eb0e.js.map": "/elijah-zweck-brereton-portfolio/static/js/main.fa84eb0e.js.map"
+    "main.6efc00be.css.map": "/elijah-zweck-brereton-portfolio/static/css/main.6efc00be.css.map",
+    "main.c39942d2.js.map": "/elijah-zweck-brereton-portfolio/static/js/main.c39942d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.234addbb.css",
-    "static/js/main.fa84eb0e.js"
+    "static/css/main.6efc00be.css",
+    "static/js/main.c39942d2.js"
   ]
 }
