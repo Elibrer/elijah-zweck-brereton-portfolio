@@ -47,6 +47,7 @@
   color: white;
   font-family: "Prompt", Helvetica, sans-serif;
   font-size: 100px;
+  font-weight:900
 }
 
 #about-article h4 {
@@ -60,52 +61,18 @@
 
 #about-article div {
   margin-top: 0;
-  width: 800px;
   color: white;
-  font-size: 30px;
   font-family: "Prompt", Helvetica, sans-serif;
   font-weight: light;
-}
-
-#about-article div {
   margin-left: 0;
-  width: 80%;
+  width: 70vw;
   margin-right: 0;
-  font-size: 2vw;
+  font-size: 35px;
 }
 
 .aboutContent {
   overflow-wrap: break-word;
   opacity: 1;
-}
-
-@media screen and (max-width: 900px) {
-  .about {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  #about-article {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #about-article h4 {
-    margin-left: 0;
-    text-align: center;
-    font-size: 3vw;
-  }
-  #about-article h3 {
-    font-size: 10vw;
-  }
-  #about-article div {
-    margin-left: 0;
-    width: 60%;
-    margin-right: 0;
-    font-size: 3vw;
-  }
 }
 
 @media screen and (max-width: 768px) {
