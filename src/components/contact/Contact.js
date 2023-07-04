@@ -38,12 +38,12 @@ const Contact = () => {
             <h5>Name*</h5>
             <div className="cardInputs">
               <div className="inputStyle">
-                <label for="first-name"></label>
+                <label htmlFor="first-name"></label>
                 <input id="first-name" type="text" />
                 <h6>First Name</h6>
               </div>
               <div className="inputStyle">
-                <label for="last-name"></label>
+                <label htmlFor="last-name"></label>
                 <input id="last-name" type="text" />
                 <h6>Last Name</h6>
               </div>
@@ -52,14 +52,14 @@ const Contact = () => {
           <figure className="inputTypes">
             <h5>E-mail*</h5>
             <div className="inputStyle">
-              <label for="email"></label>
+              <label htmlFor="email"></label>
               <input id="email" type="text" />
             </div>
           </figure>
           <figure className="inputTypes">
             <h5>Phone*</h5>
             <div className="inputStyle">
-              <label for="phone"></label>
+              <label htmlFor="phone"></label>
               <input
                 id="phone"
                 type="text"
@@ -71,9 +71,9 @@ const Contact = () => {
           <figure className="inputTypes">
             <h5>Country*</h5>
             <div className="inputStyle">
-              <label for="country"></label>
+              <label htmlFor="country"></label>
               <select id="country">
-                <option selected>Australia</option>
+                <option defaultValue>Australia</option>
                 <option>USA</option>
                 <option>Great Britain</option>
                 <option>Other</option>
@@ -83,14 +83,14 @@ const Contact = () => {
           <figure className="inputTypes">
             <h5>Enquiry*</h5>
             <div className="inputStyle d-flex align-items-center justify-content-center">
-              <label for="enquiry"></label>
+              <label htmlFor="enquiry"></label>
               <textarea id="enquiry"></textarea>
             </div>
           </figure>
           <figure className="inputTypes">
             <div className="inputStyle d-flex flex-row">
               <input className="checkbox" id="agreement" type="checkbox" />
-              <label for="agreement" className="align-items-center">
+              <label htmlFor="agreement" className="align-items-center">
                 <span>I agree to share my contact details with ZweckDev</span>
               </label>
             </div>

@@ -64,19 +64,18 @@ i {
 }
 
 .sideNav {
-  width: 0;
+  width: 120px;
   background-color: var(--darkbg);
-  /* d-flex flex-column flex-shrink-0 align-items-center*/
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
   justify-content: flex-start;
-  /* z-index: 1; */
-  /* position: fixed; */
-
-  /* overflow-x: hidden; */
   transition: 0.5s;
+}
+
+.navUl li {
+  width:100%;
 }
 
 .sideNav nav ul {
@@ -140,12 +139,13 @@ nav ul li:hover {
 }
 
 #burgerContain {
+  opacity: 0;
   position: fixed;
   background-color: #08080800;
   top: 10px;
   left: 10px;
   transition: opacity 0.5s ease;
-  z-index: 1;
+  z-index: -1;
 }
 
 .burger {

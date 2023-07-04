@@ -204,9 +204,15 @@ input[type=submit]:hover {
     }
     h6 {
         font-size: 12px;
+
     }
     .detailsHeader {
         font-size: 40px;
+        text-align: center;
+    }
+    .contact-card {
+        text-align: center;
+
     }
     .contact{
         height: auto;
