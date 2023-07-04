@@ -5,6 +5,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* padding-top: 100px; */
+
+
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .showcaseCards {
@@ -73,7 +78,22 @@
   height: 200px;
   width: 200px;
 }
-/* 
-.sccards .card-buttons button:hover {
-  background-color: var(--meddark);
-} */
+
+@media screen and (max-width: 600px) {
+  .showcase {
+    padding-left: 0;
+  }
+  .sccards {
+    height: 300px;
+    width: 300px;
+  }
+  .iconImg {
+    height: 100px;
+    width: 100px;
+  }
+  .sccards .card-buttons a {
+    font-size: 30px;
+
+  }
+}
+    

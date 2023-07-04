@@ -196,10 +196,19 @@ input[type=submit]:hover {
 }
 
 @media screen and (max-width: 768px) {
-    #contact-card {
+    .contact{
+        height: auto;
+    }
+    #contact-card-container {
+        width: 100%;
+    }
+    #inputContainer {
         width: 100%;
     }
     .inputTypes {
+        width: 100%;
+    }
+    .inputStyle {
         width: 100%;
     }
     .ctcards {

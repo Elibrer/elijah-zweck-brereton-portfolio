@@ -3,10 +3,11 @@
   padding: 0;
   margin: 0;
 }
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
-
 }
 
 html {
@@ -31,14 +32,24 @@ ul {
   --white: #e0e0e0;
 }
 
-a:link, a:visited, a:hover, a:active {
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
   text-decoration: none;
 }
 
 .logoImg {
-  margin-top: 40px;
+  margin-top: 10px;
+  margin-bottom: 40px;
   height: 80px;
   width: 80px;
+  justify-content: center;
 }
 
 li div {
@@ -46,13 +57,32 @@ li div {
   padding-top: 10px;
 }
 
-h1, i {
+h1,
+i {
   color: white;
   font-size: 1.2rem;
 }
 
 .sideNav {
+  width: 0;
   background-color: var(--darkbg);
+  /* d-flex flex-column flex-shrink-0 align-items-center*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  /* z-index: 1; */
+  /* position: fixed; */
+
+  /* overflow-x: hidden; */
+  transition: 0.5s;
+}
+
+.sideNav nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .selected {
@@ -69,7 +99,7 @@ nav ul li:hover {
   cursor: pointer;
   height: 100%;
   align-items: center;
-} 
+}
 
 .mainContain {
   width: 100%;
@@ -81,7 +111,7 @@ nav ul li:hover {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height:45px;
+  height: 45px;
   color: var(--med);
   border-top: 1px groove var(--darkbg);
 }
@@ -100,4 +130,91 @@ nav ul li:hover {
 
 .navEl {
   width: 120px;
+}
+#allNav {
+  background-color: var(--darkbg);
+}
+
+#innerNav {
+  background-color: var(--darkbg);
+}
+
+#burgerContain {
+  position: fixed;
+  background-color: #08080800;
+  top: 10px;
+  left: 10px;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.burger {
+  width: 60px;
+  height: 10px;
+  background-color: var(--meddark);
+  margin: 6px 0;
+}
+
+.closebtn {
+  background-color: var(--darkbg);
+  color: rgb(172, 172, 172);
+  font-weight: bolder;
+  border: none;
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .closebtn{
+    margin-right:10px;
+    margin-left: 10px;
+  }
+  #burgerContain {
+    position: absolute;
+  }  
+  .burger {
+    width: 40px;
+    height: 5px;
+  }
+  .navEl {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navEl h1 {
+    display: none;
+  }
+  .sideNav {
+    width: 100%;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .sideNav nav {
+    width: 100%;
+  }
+  #innerNav {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: space-between;
+  }
+  .sideNav nav ul {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 0;
+  }
+  .logoImg {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 40px;
+    width: 40px;
+  }
 }
