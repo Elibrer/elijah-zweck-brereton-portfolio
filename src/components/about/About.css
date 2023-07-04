@@ -44,7 +44,7 @@
 }
 
 #about-article h3 {
-  color: var(--white);
+  color: white;
   font-family: "Prompt", Helvetica, sans-serif;
   font-size: 100px;
 }
@@ -61,7 +61,7 @@
 #about-article div {
   margin-top: 0;
   width: 800px;
-  color: var(--white);
+  color: white;
   font-size: 30px;
   font-family: "Prompt", Helvetica, sans-serif;
   font-weight: light;

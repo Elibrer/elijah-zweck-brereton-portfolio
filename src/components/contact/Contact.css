@@ -196,6 +196,18 @@ input[type=submit]:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .contact {
+        padding-top: 40px;
+    }
+    h5 {
+        font-size: 15px;
+    }
+    h6 {
+        font-size: 12px;
+    }
+    .detailsHeader {
+        font-size: 40px;
+    }
     .contact{
         height: auto;
     }
