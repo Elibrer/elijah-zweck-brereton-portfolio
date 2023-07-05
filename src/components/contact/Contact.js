@@ -18,6 +18,7 @@ const Contact = () => {
   const [shareAgree, setShareAgree] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [thanksMessage, setThanksMessage] = useState("");
+  const [fieldRequired, setFieldRequired] = useState("");
   const [submitForm, setSubmitForm] = useState("");
 
   const [nameEl, setNameEl] = useState("Name");
@@ -31,7 +32,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setThanksMessage("");
-    console.log(enquiry);
     if (
       (shareAgree === true &&
         (!firstName || !lastName || !email || !phone || !enquiry)) ||
@@ -40,17 +40,8 @@ const Contact = () => {
       setSubmitMessage("Please fill out all required* fields");
       return;
     }
-
     setSubmitMessage("");
     setFullName(firstName + " " + lastName);
-    const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
-    if (!emailRegex.test(email)) {
-      setSubmitMessage("Please enter a valid email address.");
-    }
-    const phoneRegex = /^(\+?61|0)4[0-9]{8}$/;
-    if (!phoneRegex.test(phone)) {
-      setSubmitMessage("Please enter a valid phone number.");
-    }
 
     if (countryList === "Other") {
       if (otherCountry) {
@@ -66,6 +57,17 @@ const Contact = () => {
     }
 
     if (shareAgree === true) {
+      const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
+      if (!emailRegex.test(email)) {
+        setSubmitMessage("Please enter a valid email address.");
+        return;
+      }
+      const phoneRegex = /^(\+?61|0)4[0-9]{8}$/;
+      if (!phoneRegex.test(phone)) {
+        setSubmitMessage("Please enter a valid phone number.");
+        return;
+      }
+
       setSubmitForm({
         Name: fullName,
         Email: email,
@@ -86,7 +88,12 @@ const Contact = () => {
     setCountryList("Australia");
     setOtherCountry("");
     setEnquiry("");
+    setNameEl("Name");
+    setEmailEl("E-mail");
+    setPhoneEl("Phone");
+    setCountryEl("Country");
     setShareAgree(false);
+    document.getElementById("agreement").checked = false;
     setCountry("");
     setThanksMessage(
       "Thank you for your enquiry. I will get back to you as soon as possible."
@@ -96,6 +103,43 @@ const Contact = () => {
   useEffect(() => {
     console.log(submitForm);
   }, [submitForm]);
+
+  const checkOnBlur = (e) => {
+     if(e.target.value !== "") {
+      setFieldRequired("");
+    }
+
+    if (e.target.value === "") {
+      switch (e.target.getAttribute("data-key")) {
+        case "firstName":
+          if (shareAgree === true) {
+            setFieldRequired("firstName");
+            console.log(fieldRequired);
+          }
+          break;
+        case "lastName":
+          if (shareAgree === true) {
+            setFieldRequired("lastName");
+          }
+          break;
+        case "email":
+          if (shareAgree === true) {
+            setFieldRequired("email");
+          }
+          break;
+        case "phone":
+          if (shareAgree === true) {
+            setFieldRequired("phone");
+          }
+          break;
+        case "enquiry":
+          setFieldRequired("enquiry");
+          break;
+        default:
+          setFieldRequired("");
+      }
+    }
+  };
 
   const handleCheckboxChange = (e) => {
     if (e.target.checked) {
@@ -113,21 +157,18 @@ const Contact = () => {
     }
   };
 
-  useEffect(
-    () => {
-      if (countryList === "Other") {
-        setHiddenEl("unhidden");
-        if (otherCountry) {
-          setCountry(otherCountry);
-          setSubmitMessage("");
-        }
-      } else {
-        setCountry(countryList);
-        setHiddenEl("hidden");
+  useEffect(() => {
+    if (countryList === "Other") {
+      setHiddenEl("unhidden");
+      if (otherCountry) {
+        setCountry(otherCountry);
+        setSubmitMessage("");
       }
-    },
-    [countryList, otherCountry]
-  );
+    } else {
+      setCountry(countryList);
+      setHiddenEl("hidden");
+    }
+  }, [countryList, otherCountry]);
 
   const handleOtherCountry = (e) => {
     setOtherCountry(e);
@@ -231,30 +272,63 @@ const Contact = () => {
               <div className="inputStyle">
                 <label htmlFor="first-name"></label>
                 <input
+                  onBlur={(e) => checkOnBlur(e)}
+                  data-key="firstName"
                   id="first-name"
                   type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
-                <h6>First Name</h6>
+                <h6>
+                  First Name{" "}
+                  <span
+                    className={`requiredSpan ${
+                      fieldRequired === "firstName" ? "unhidden" : "hidden"
+                    }`}
+                  >
+                    Field required*
+                  </span>
+                </h6>
               </div>
               <div className="inputStyle">
                 <label htmlFor="last-name"></label>
                 <input
+                  onBlur={checkOnBlur}
+                  data-key="lastName"
                   id="last-name"
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
-                <h6 id="lastName">Last Name</h6>
+                <h6 id="lastName">
+                  Last Name
+                  <span
+                    className={`requiredSpan ${
+                      fieldRequired === "lastName" ? "unhidden" : "hidden"
+                    }`}
+                  >
+                    Field required*
+                  </span>
+                </h6>
               </div>
             </div>
           </figure>
           <figure className="inputTypes">
-            <h5 id="email">{emailEl}</h5>
+            <h5 id="email">
+              {emailEl}
+              <span
+                className={`requiredSpan ${
+                  fieldRequired === "email" ? "unhidden" : "hidden"
+                }`}
+              >
+                Field required*
+              </span>
+            </h5>
             <div className="inputStyle">
               <label htmlFor="email"></label>
               <input
+                onBlur={checkOnBlur}
+                data-key="email"
                 id="email"
                 type="text"
                 value={email}
@@ -263,10 +337,21 @@ const Contact = () => {
             </div>
           </figure>
           <figure className="inputTypes">
-            <h5 id="phone">{phoneEl}</h5>
+            <h5 id="phone">
+              {phoneEl}
+              <span
+                className={`requiredSpan ${
+                  fieldRequired === "phone" ? "unhidden" : "hidden"
+                }`}
+              >
+                Field required*
+              </span>
+            </h5>
             <div className="inputStyle">
               <label htmlFor="phone"></label>
               <input
+                onBlur={checkOnBlur}
+                data-key="phone"
                 id="phone"
                 type="text"
                 name="phone"
@@ -291,8 +376,8 @@ const Contact = () => {
                 <option>Other</option>
               </select>
               <input
-                id={hiddenEl}
-                className="mt-2"
+                onBlur={checkOnBlur}
+                className={`mt-2 ${hiddenEl}`}
                 type="text"
                 name="otherCountry"
                 value={otherCountry}
@@ -301,10 +386,21 @@ const Contact = () => {
             </div>
           </figure>
           <figure className="inputTypes">
-            <h5 id="enquiry">Enquiry*</h5>
+            <h5 id="enquiry">
+              Enquiry*
+              <span
+                className={`requiredSpan ${
+                  fieldRequired === "enquiry" ? "unhidden" : "hidden"
+                }`}
+              >
+                Field required*
+              </span>
+            </h5>
             <div className="inputStyle d-flex align-items-center justify-content-center">
               <label htmlFor="enquiry"></label>
               <textarea
+                onBlur={checkOnBlur}
+                data-key="enquiry"
                 id="enquiry"
                 value={enquiry}
                 onChange={(e) => setEnquiry(e.target.value)}
@@ -322,7 +418,9 @@ const Contact = () => {
                 onChange={handleCheckboxChange}
               />
               <label htmlFor="agreement" className="align-items-center">
-                <span>I agree to share my contact details with ZweckDev</span>
+                <span id="shareSpan">
+                  I agree to share my contact details with ZweckDev
+                </span>
               </label>
             </div>
           </figure>

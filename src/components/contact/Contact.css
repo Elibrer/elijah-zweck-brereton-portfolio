@@ -8,6 +8,8 @@ h5 {
   color: var(--white);
   font-weight: 400;
   margin: 0 5px;
+  display: flex;
+  align-items: center;
 }
 h6 {
   font-family: "Prompt", Helvetica, sans-serif;
@@ -15,6 +17,8 @@ h6 {
   color: var(--med);
   font-weight: 200;
   margin: 0 5px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .contact {
@@ -122,7 +126,14 @@ li a:not(:hover) {
   margin: 0 2px;
 }
 
-span {
+.requiredSpan {
+  color: #ff0000cd;
+  font-style: italic;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+#shareSpan {
   font-family: "Prompt", Helvetica, sans-serif;
   font-size: 20px;
   color: var(--med);
@@ -174,6 +185,19 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #057373;
+}
+
+#submitMessage {
+  color:#ff000072;
+}
+#thanksMessage {
+color: var(--meddark);
+}
+.hidden {
+  display: none;
+}
+.unhidden {
+  display: block;
 }
 
 @media screen and (max-width: 600px) {

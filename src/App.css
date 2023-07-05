@@ -199,6 +199,7 @@ nav ul li:hover {
   }
   #burgerContain {
     position: absolute;
+    opacity:0;
   }  
   .burger {
     width: 40px;

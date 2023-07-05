@@ -1,162 +1,119 @@
-# 20 React: React Portfolio
+## Elijah 'Zweck' Brereton's Portfolio
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Your Task
+*Elijah 'Zweck' Brereton's portfolio page to showcase work completed, read a short bio, or find information to contact Elijah*
 
-Being a web developer means being part of a community. You’ll need a place not only to share your projects while you're applying for jobs or working as a freelancer but also to share your work with other developers and collaborate on projects.
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  [![CSS](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![HTML](https://img.shields.io/badge/HTML-purple?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-Your task is to create a portfolio using your new React skills, which will help set you apart from other developers whose portfolios don’t use the latest technologies. 
+---
 
-You’ll deploy this application to GitHub Pages. Follow the instructions in the Git Guide or consult the [Create React App Docs on GitHub Pages](https://create-react-app.dev/docs/deployment/#github-pages) to create a build that you can deploy.
+## Packages used
+[![React](https://img.shields.io/badge/React-454b60?style=for-the-badge&logo=react)](https://react.dev/) [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) [![gh-pages](https://img.shields.io/badge/gh--pages-green?style=for-the-badge&logo=github)](https://www.npmjs.com/package/gh-pages/) 
 
-**Important**: Be sure to push your codebase to the default branch in GitHub -- NOT your built and deployed code. Ensure this happens by using the `gh-pages` branch to host the deployed application's build.
+---
 
-## User Story
+## Links
+GitHub Repository: [@elibrer](https://github.com/elibrer/elijah-zweck-brereton-portfolio)
 
+Link to deployed application: [@Elijah 'Zweck' Brereton Portfolio](https://elibrer.github.io/elijah-zweck-brereton-portfolio/#/)
+
+---
+
+## Contributors
+> Elijah Brereton @[GitHub](https://github.com/elibrer)
+
+---
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Features](#features)
+- [Documentation](#documentation)
+- [Application Preview](#application-preview)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
+
+---
+
+## Description
+This repository contains the code for my portfolio website, which serves as a showcase of my projects and reflects my ongoing development journey. Through this website, I aim to demonstrate the skills and knowledge I have acquired in web development, particularly utilising the MERN stack (MongoDB, Express.js, React.js, Node.js)
+
+I have built this portfolio as a platform to continuously update and improve as I progress in my career. It represents my dedication to honing my programming abilities and serves as a testament to my passion for web development.
+
+By continually refining and expanding this website, I strive to create a valuable resource to exhibit my work to potential clients and employers. It not only displays the projects I have completed but also showcases the growth and expertise I have gained through research, learning, and practical application.
+
+---
+
+## Installation
+
+For usage of this application, visit the [Portfolio](https://elibrer.github.io/elijah-zweck-brereton-portfolio/#/) website via heroku. No further installation is required to access and operate the web page. 
+
+
+---
+
+## Features
 ```md
-AS AN employer looking for candidates with experience building single-page applications
-I WANT to view a potential employee's deployed React portfolio of work samples
-SO THAT I can assess whether they're a good candidate for an open position
+- GIVEN a single-page application portfolio for Elijah Brereton
+- WHEN I load the portfolio
+- THEN I am presented with a page containing a nav bar, a section for content, and a footer
+- WHEN I view the nav bar
+- THEN I am presented with navigation with titles corresponding to different sections of the portfolio
+- WHEN I view the navigation titles
+- THEN I am presented with the titles Home, Showcase, About, and Contact, and the title corresponding to the current section is highlighted
+- WHEN I click on a navigation title
+- THEN I am presented with the corresponding section to the side of or below the navigation without the page reloading and that title is highlighted
+- WHEN I load the portfolio the first time
+- THEN the Home landing page is selected by default
+- WHEN I am presented with the About section
+- THEN I see a recent photo or avatar of Elijah Brereton and a short bio about them
+- WHEN I am presented with the Showcase section
+- THEN I see titled images of six of Elijah Brereton’s applications with links to both the deployed applications and the corresponding GitHub repositories
+- WHEN I am presented with the Contact section
+- THEN I see a contact form with fields for a first name, last name, an email address, a phone number, a country input, and an enquiry message - with the option to share all or none of the contact info
+- WHEN I move my cursor out of one of the form fields without entering text, or press submit without the required fields having content
+- THEN I receive a notification that this field is required, or to fill out all required fields
+- WHEN I enter text into the email address field
+- THEN I receive a notification if I have entered an invalid email address
+- WHEN I enter text into the phone number field
+- THEN I receive a notification if I have entered an invalid Australian phone number 
+- WHEN I wish to view Elijah's resume
+- THEN I can access the link to the resume on the Contact page
+- WHEN I wish to view Elijah's other social accounts, GitHub, LinkedIn, Instagram
+- THEN I can access the link to those pages on the Contact page
+- WHEN I view the footer
+- THEN I am presented with a copyright logo, and a description of the porfolios creator
 ```
 
-## Acceptance Criteria
+---
 
-```md
-GIVEN a single-page application portfolio for a web developer
-WHEN I load the portfolio
-THEN I am presented with a page containing a header, a section for content, and a footer
-WHEN I view the header
-THEN I am presented with the developer's name and navigation with titles corresponding to different sections of the portfolio
-WHEN I view the navigation titles
-THEN I am presented with the titles About Me, Portfolio, Contact, and Resume, and the title corresponding to the current section is highlighted
-WHEN I click on a navigation title
-THEN I am presented with the corresponding section below the navigation without the page reloading and that title is highlighted
-WHEN I load the portfolio the first time
-THEN the About Me title and section are selected by default
-WHEN I am presented with the About Me section
-THEN I see a recent photo or avatar of the developer and a short bio about them
-WHEN I am presented with the Portfolio section
-THEN I see titled images of six of the developer’s applications with links to both the deployed applications and the corresponding GitHub repositories
-WHEN I am presented with the Contact section
-THEN I see a contact form with fields for a name, an email address, and a message
-WHEN I move my cursor out of one of the form fields without entering text
-THEN I receive a notification that this field is required
-WHEN I enter text into the email address field
-THEN I receive a notification if I have entered an invalid email address
-WHEN I am presented with the Resume section
-THEN I see a link to a downloadable resume and a list of the developer’s proficiencies
-WHEN I view the footer
-THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter)
-```
+## Documentation
+No documentation provided.
 
-## Mock-Up
+---
 
-The following animation shows the web application's appearance and functionality:
+## Application Preview
+### `Portfolio Landing Page`
+![Portfolio Landing Page](./src/assets/images/portfolio-landing-page.png)
+### `Portfolio Showcase Page`
+![Portfolio Showcase Page](./src/assets/images/portfolio-showcase-page.png)
+### `Portfolio About Page`
+![Portfolio About Page](./src/assets/images/portfolio-about-page.png)
+### `Portfolio Contact Page`
+![Portfolio Contact Page](./src/assets/images/portfolio-contact-page.png)
 
-![User clicks through About Me, Portfolio, Resume, and Contact sections on the webpage and enters information on Contact page.](./Assets/20-react-homework-demo-01.gif)
+---
 
-## Getting Started
+## License
+[Licensed under the MIT license.](https://opensource.org/licenses/MIT)
 
-You’ll use `create-react-app` to build your portfolio, which will include the following:
+---
 
-* A single `Header` component that appears on multiple pages
+## Tests
+To test, simply run the application by using the instructions provided above. If there are any errors, or the application did not work in the intended way, please try to locate and log the lines of code that bring up the error, and forward all issues to the email below.
 
-* A single `Navigation` component within the header that will be used to conditionally render the different sections of your portfolio
+---
 
-* A single `Project` component that will be used multiple times in the Portfolio section
-
-* A single `Footer` component that appears on multiple pages
-
-**Note**: Because this application doesn’t include a back end or connect to an API, the contact form doesn't need to save this information right now. You'll add back-end functionality in the next few weeks. In the meantime, consider including your email address and phone number on the Contact page.
-
-### Projects
-
-For each project that is featured in your portfolio, include the following:
-
-* An image of the deployed application (either a short animated GIF or screenshot)
-
-* The title of the project
-
-* A link to the deployed application
-
-* A link to the corresponding GitHub repository
-
-### Design
-
-As with the previous portfolio Challenge, remember that "good" design is subjective; however, your site should look polished. Here are a few guidelines on what that means:
-
-* Use mobile-first design.
-
-* Choose a color palette that distinguishes your site from the default Bootstrap theme and unstyled HTML sites. Refer to resources like [Coolors](https://coolors.co/) or another color scheme generator to help you create something that will stand out.
-
-* Ensure that the font size is large enough to read and that the colors don't cause eye strain.
-
-* Consider using animations and React component libraries. Note that this will not affect your grade, but it might impact how potential employers gauge your knowledge.
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-    * Application must use React to render content.
-
-    * Application has a single `Header` component that appears on multiple pages, with a `Navigation` component within it that’s used to conditionally render About Me, Portfolio, Contact, and Resume sections.
-
-    * Application has a single `Project` component that’s used multiple times in the Portfolio section.
-
-    * Application has a single `Footer` component that appears on multiple pages.
-
-    * Application must be deployed to GitHub Pages.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application uses a color scheme other than the default Bootstrap color palette.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains high-quality README file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README that describes the project.
-
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+## Questions
+For questions and enquiries, please contact me at: 
+[eli.brer@gmail.com](eli.brer@gmail.com)

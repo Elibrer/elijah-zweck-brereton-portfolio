@@ -6,6 +6,8 @@ import weatheringHeights from "../../assets/images/weathering-heights.png";
 import outfitForecast from "../../assets/images/outfit-forecast.png";
 import zweckTechBlog from "../../assets/images/zweck-tech-login.png";
 import githubIcon from "../../assets/images/githubLogo.png";
+import pwaTextEditor from "../../assets/images/pwaapp.png";
+import socialNetworkApi from "../../assets/images/socialNetworkApi.png";
 
 const Showcase = () => {
   return (
@@ -101,6 +103,52 @@ const Showcase = () => {
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/Elibrer/sports-team-manager/"
+            >
+              <img className="iconImg" src={githubIcon} alt="Github icon" />
+            </a>
+          </div>
+        </div>
+
+        <div className="sccards">
+          <img
+            className="showcaseImg"
+            src={pwaTextEditor}
+            alt="PWA text editor app with a dark theme."
+          />
+          <div className="card-buttons d-flex flex-column text-center">
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://zweck-text-editor-226f3a8f722e.herokuapp.com//"
+            >
+              J.A.T.E Text Editor
+            </a>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/Elibrer/pwa-text-editor/"
+            >
+              <img className="iconImg" src={githubIcon} alt="Github icon" />
+            </a>
+          </div>
+        </div>
+
+        <div className="sccards">
+          <img
+            className="showcaseImg"
+            src={socialNetworkApi}
+            alt="Insomnia screenshot of social network api routes"
+          />
+          <div className="card-buttons d-flex flex-column text-center">
+            <p
+              
+            >
+              Social Network API
+            </p>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/Elibrer/social-network-api/"
             >
               <img className="iconImg" src={githubIcon} alt="Github icon" />
             </a>

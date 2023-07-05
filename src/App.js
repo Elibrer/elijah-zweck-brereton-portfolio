@@ -27,8 +27,13 @@ const App = () => {
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    const handleUrlChange = () => {
+      const currentPath = window.location.hash.slice(2);
+      setIsSelected(currentPath);
+    };
 
+    window.addEventListener("resize", handleResize);
+    handleUrlChange();
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -72,7 +77,7 @@ const App = () => {
           <div className="sideNav" id="sideNav">
             <nav id="innerNav">
               <button className="closebtn" onClick={() => closeNav()}>
-              &times;
+                &times;
               </button>
               <ul className="p-0 navUl">
                 <img className="logoImg" src={zLogo} alt="ZweckDev logo" />
