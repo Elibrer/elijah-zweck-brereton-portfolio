@@ -114,7 +114,6 @@ const Contact = () => {
         case "firstName":
           if (shareAgree === true) {
             setFieldRequired("firstName");
-            console.log(fieldRequired);
           }
           break;
         case "lastName":
@@ -147,12 +146,16 @@ const Contact = () => {
       setEmailEl("E-mail*");
       setPhoneEl("Phone*");
       setCountryEl("Country*");
+      setFieldRequired("");
+      console.log(fieldRequired)
       setShareAgree(true);
     } else {
       setNameEl("Name");
       setEmailEl("E-mail");
       setPhoneEl("Phone");
       setCountryEl("Country");
+      setFieldRequired("");
+
       setShareAgree(false);
     }
   };
