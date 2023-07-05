@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/elijah-zweck-brereton-portfolio/static/css/main.b7c6300d.css",
-    "main.js": "/elijah-zweck-brereton-portfolio/static/js/main.f8d5a8c4.js",
+    "main.css": "/elijah-zweck-brereton-portfolio/static/css/main.b052e9a6.css",
+    "main.js": "/elijah-zweck-brereton-portfolio/static/js/main.1ea9797e.js",
     "static/media/profile-1.png": "/elijah-zweck-brereton-portfolio/static/media/profile-1.24407d56c849113e9615.png",
     "static/media/eli-full.JPEG": "/elijah-zweck-brereton-portfolio/static/media/eli-full.6c17b410590e0786097f.JPEG",
     "static/media/outfit-forecast.png": "/elijah-zweck-brereton-portfolio/static/media/outfit-forecast.e9a236992fb259812b5c.png",
@@ -15,11 +15,11 @@
     "static/media/pwaapp.png": "/elijah-zweck-brereton-portfolio/static/media/pwaapp.ed4096418b7013795d7e.png",
     "static/media/githubLogo.png": "/elijah-zweck-brereton-portfolio/static/media/githubLogo.ed1c06d925fff0b57e32.png",
     "index.html": "/elijah-zweck-brereton-portfolio/index.html",
-    "main.b7c6300d.css.map": "/elijah-zweck-brereton-portfolio/static/css/main.b7c6300d.css.map",
-    "main.f8d5a8c4.js.map": "/elijah-zweck-brereton-portfolio/static/js/main.f8d5a8c4.js.map"
+    "main.b052e9a6.css.map": "/elijah-zweck-brereton-portfolio/static/css/main.b052e9a6.css.map",
+    "main.1ea9797e.js.map": "/elijah-zweck-brereton-portfolio/static/js/main.1ea9797e.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7c6300d.css",
-    "static/js/main.f8d5a8c4.js"
+    "static/css/main.b052e9a6.css",
+    "static/js/main.1ea9797e.js"
   ]
 }
