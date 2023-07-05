@@ -15,14 +15,15 @@ const App = () => {
   useEffect(() => {
     const handleResize = () => {
       setMobile(window.innerWidth <= 768);
-      if (window.innerWidth === 768) {
+      if (window.innerWidth <= 768) {
         document.getElementById("burgerContain").style.opacity = 0;
         document.getElementById("sideNav").style.width = "100%";
         document.getElementById("sideNav").style.height = "50px";
       }
-      if (window.innerWidth === 769) {
+      if (window.innerWidth >= 769) {
         document.getElementById("burgerContain").style.opacity = 0;
         document.getElementById("sideNav").style.width = "120px";
+        document.getElementById("sideNav").style.height = "100%";
       }
     };
 
@@ -43,7 +44,6 @@ const App = () => {
       document.getElementById("sideNav").style.height = "50px";
       document.getElementById("burgerContain").style.opacity = 0;
       document.getElementById("burgerContain").style.zIndex = -1;
-      ;
     }
   }
 
@@ -72,12 +72,16 @@ const App = () => {
           <div className="sideNav" id="sideNav">
             <nav id="innerNav">
               <button className="closebtn" onClick={() => closeNav()}>
-                ×
+              &times;
               </button>
               <ul className="p-0 navUl">
                 <img className="logoImg" src={zLogo} alt="ZweckDev logo" />
                 <li className={isSelected === "home" ? "selected" : ""}>
-                  <NavLink to="/" onClick={() => setIsSelected("home")}>
+                  <NavLink
+                    className="NavLink"
+                    to="/"
+                    onClick={() => setIsSelected("home")}
+                  >
                     <div className="navEl d-flex flex-column justfiy-content-center align-items-center ">
                       <i className="fa fa-home" style={{ fontSize: "2em" }}></i>
                       <h1>HOME</h1>
@@ -86,6 +90,7 @@ const App = () => {
                 </li>
                 <li className={isSelected === "showcase" ? "selected" : ""}>
                   <NavLink
+                    className="NavLink"
                     to="/showcase"
                     onClick={() => setIsSelected("showcase")}
                   >
@@ -99,7 +104,11 @@ const App = () => {
                   </NavLink>
                 </li>
                 <li className={isSelected === "about" ? "selected" : ""}>
-                  <NavLink to="/about" onClick={() => setIsSelected("about")}>
+                  <NavLink
+                    className="NavLink"
+                    to="/about"
+                    onClick={() => setIsSelected("about")}
+                  >
                     <div className="navEl d-flex flex-column justfiy-content-center align-items-center ">
                       <i className="fa fa-user" style={{ fontSize: "2em" }}></i>
                       <h1>ABOUT</h1>
@@ -108,6 +117,7 @@ const App = () => {
                 </li>
                 <li className={isSelected === "contact" ? "selected" : ""}>
                   <NavLink
+                    className="NavLink"
                     to="/contact"
                     onClick={() => setIsSelected("contact")}
                   >

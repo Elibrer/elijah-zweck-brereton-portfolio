@@ -64,7 +64,8 @@ i {
 }
 
 .sideNav {
-  width: 120px;
+  width: 0px;
+  height:100%;
   background-color: var(--darkbg);
   display: flex;
   flex-direction: column;
@@ -76,6 +77,7 @@ i {
 
 .navUl li {
   width:100%;
+
 }
 
 .sideNav nav ul {
@@ -96,7 +98,6 @@ nav ul li a:hover,
 nav ul li:hover {
   background-color: var(--darker);
   cursor: pointer;
-  height: 100%;
   align-items: center;
 }
 
@@ -136,16 +137,29 @@ nav ul li:hover {
 
 #innerNav {
   background-color: var(--darkbg);
+  height:100%;
+}
+
+#innerNav ul {
+  height:70%;
+  display:flex;
+  justify-content: space-evenly;
+}
+
+#innerNav ul li, #innerNav ul li a,#innerNav ul li a div {
+  height:100%;
+  display:flex;
+  justify-content: center;
 }
 
 #burgerContain {
-  opacity: 0;
+  opacity: 1;
   position: fixed;
   background-color: #08080800;
   top: 10px;
   left: 10px;
   transition: opacity 0.5s ease;
-  z-index: -1;
+  z-index: 1;
 }
 
 .burger {
@@ -171,6 +185,17 @@ nav ul li:hover {
   .closebtn{
     margin-right:10px;
     margin-left: 10px;
+  }
+  .navEl {
+    width:100%;
+  }
+  .NavLink {
+    width:100%;
+  }
+  #innerNav ul {
+    height:100%;
+    display:flex;
+    justify-content: space-evenly;
   }
   #burgerContain {
     position: absolute;

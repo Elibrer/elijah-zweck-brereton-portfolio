@@ -1,237 +1,236 @@
 p {
-    margin: 0px;
-    
+  margin: 0px;
 }
-
 
 h5 {
-    font-family:'Prompt', Helvetica, sans-serif;
-    font-size:20px;
-    color:var(--white);
-    font-weight: 400;
-    margin: 0 5px;
+  font-family: "Prompt", Helvetica, sans-serif;
+  font-size: 20px;
+  color: var(--white);
+  font-weight: 400;
+  margin: 0 5px;
 }
 h6 {
-    font-family:'Prompt', Helvetica, sans-serif;
-    font-size:15px;
-    color:var(--med);
-    font-weight: 200;
-    margin: 0 5px;
+  font-family: "Prompt", Helvetica, sans-serif;
+  font-size: 15px;
+  color: var(--med);
+  font-weight: 200;
+  margin: 0 5px;
 }
 
-
-
 .contact {
+    align-items: center;
     background-color: var(--darker);
-    overflow:hidden;
+    display: flex;
     height: calc(100vh - 45px);
-    padding-top: 330px;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .ctcards {
-    display:flex;
-    justify-content: space-around;
+    display: flex;
     flex-direction: row;
+    height: auto;
+    justify-content: space-around;
 }
-
 /*------------------Contact Details---------------------*/
 
 #contact-card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:auto;
-    width:50%;
-    color:var(--med);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 50%;
+  color: var(--med);
 }
 
 .contact-card {
-    width: 100%;
+  width: 100%;
 }
 
 #contact-card-container div {
-    width:auto;
-    color: var(--white);
-    font-size: 30px;
-    font-weight: 100;
+  width: auto;
+  color: var(--white);
+  font-size: 30px;
+  font-weight: 100;
 }
 
 .detailsHeader {
-    width:100%;
-    font-weight:900;
-    font-size: 60px;
+  width: 100%;
+  font-weight: 900;
+  font-size: 60px;
 }
 
-
-#contact-card-container div p a:link, #contact-card div p a:visited {
-    color: var(--white);
+#contact-card-container div p a:link,
+#contact-card div p a:visited {
+  color: var(--white);
 }
 
-li a:link, li a:visited {
-    color: var(--meddark);
+li a:link,
+li a:visited {
+  color: var(--meddark);
 }
 
 li a:hover {
-    transition: all .5s linear;
-    text-shadow: 0 0 20px var(--med);
+  transition: all 0.5s linear;
+  text-shadow: 0 0 20px var(--med);
 }
 
 li a:not(:hover) {
-    transition: all 1s ease-out;
+  transition: all 1s ease-out;
 }
 
 .socialLogo {
-    width: 30px;
-    height: 30px;
-    margin: 0px 5px;
-    margin-bottom: 5px;
-    color: var(--med);
+  width: 30px;
+  height: 30px;
+  margin: 0px 5px;
+  margin-bottom: 5px;
+  color: var(--med);
 }
-
-
 
 /*-----------------------Contact - Input------------------------*/
 
 #inputContainer {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 50%;
-    padding:10px;
-    border-radius: 5px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .inputTypes {
-    width:100%;
-    padding: 10px 0px;
-    margin:0;
-
+  width: 100%;
+  padding: 10px 0px;
+  margin: 0;
 }
 
 .cardInputs {
-    display: flex;
-    flex-grow:1;
-    flex-wrap:wrap;
-    position: relative;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .inputStyle {
-    flex-grow:1;
-    margin: 0 2px;
+  flex-grow: 1;
+  margin: 0 2px;
 }
 
 span {
-    font-family:'Prompt', Helvetica, sans-serif;
-    font-size:20px;
-    color:var(--med);
-    font-weight: 200;
-    margin: 0 5px;
+  font-family: "Prompt", Helvetica, sans-serif;
+  font-size: 20px;
+  color: var(--med);
+  font-weight: 200;
+  margin: 0 5px;
 }
 
-
-input[type=text], input[type=phone], textarea, select {
-    width: 100%;
-    border: 1px solid var(--white);
-    padding: 0px 4px;
+input[type="text"],
+input[type="phone"],
+textarea,
+select {
+  width: 100%;
+  border: 1px solid var(--white);
+  padding: 0px 4px;
 }
 
-input[type=text]:hover, input[type=phone]:hover, textarea:hover, select:hover {
-    transition:all 1s linear;
-    box-shadow: inset 7px 0 10px var(--light), inset 0 7px 10px var(--light), inset -7px 0 10px var(--light), inset 0 -7px 10px var(--light);
+input[type="text"]:hover,
+input[type="phone"]:hover,
+textarea:hover,
+select:hover {
+  transition: all 1s linear;
+  box-shadow: inset 7px 0 10px var(--light), inset 0 7px 10px var(--light),
+    inset -7px 0 10px var(--light), inset 0 -7px 10px var(--light);
 }
 label {
-    align-items: center;
+  align-items: center;
 }
 
-input[type=checkbox] {
-    height: 12px;
-    width:25px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid var(--white);
-}
-  
-input[type=submit] {
-    width: 100%;
-    background-color: var(--meddark);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: .5s;
+input[type="checkbox"] {
+  height: 12px;
+  width: 25px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--white);
 }
 
-input[type=submit]:hover {
-    background-color: #057373;
+input[type="submit"] {
+  width: 100%;
+  background-color: var(--meddark);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
+input[type="submit"]:hover {
+  background-color: #057373;
+}
 
 @media screen and (max-width: 600px) {
-    #contact-card {
-        width: 100%;
-    }
-    #inputContainer {
-        width: 100%;
-    }
-    .inputStyle {
-        width: 100%;
-    }
-    .cardInputs {
-        flex-direction: column;
-    }
-    .inputTypes {
-        width: 100%;
-    }
-    .ctcards {
-        flex-direction: column;
-    }
+  #contact-card {
+    width: 100%;
+  }
+  #inputContainer {
+    width: 100%;
+  }
+  .inputStyle {
+    width: 100%;
+  }
+  .cardInputs {
+    flex-direction: column;
+  }
+  .inputTypes {
+    width: 100%;
+  }
+  .ctcards {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .contact {
-        padding-top: 40px;
-    }
-    h5 {
-        font-size: 15px;
-    }
-    h6 {
-        font-size: 12px;
-
-    }
-    .detailsHeader {
-        font-size: 40px;
-        text-align: center;
-    }
-    .contact-card {
-        text-align: center;
-
-    }
-    .contact{
-        height: auto;
-    }
-    #contact-card-container {
-        width: 100%;
-    }
-    #inputContainer {
-        width: 100%;
-    }
-    .inputTypes {
-        width: 100%;
-    }
-    .inputStyle {
-        width: 100%;
-    }
-    .ctcards {
-        flex-direction: column;
-        align-items: center;
-    }
+  .contact {
+    padding-top: 40px;
+  }
+  h5 {
+    font-size: 15px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+  .detailsHeader {
+    font-size: 40px;
+    text-align: center;
+  }
+  .contact-card {
+    text-align: center;
+  }
+  .contact {
+    height: auto;
+  }
+  #contact-card-container {
+    width: 100%;
+  }
+  #inputContainer {
+    width: 100%;
+  }
+  .inputTypes {
+    width: 100%;
+  }
+  .inputStyle {
+    width: 100%;
+  }
+  .ctcards {
+    flex-direction: column;
+    align-items: center;
+  }
 }

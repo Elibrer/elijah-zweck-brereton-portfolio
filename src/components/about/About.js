@@ -8,7 +8,7 @@ const About = () => {
       <div id="about-article">
         <div id="innerAbout">
           <h3>About</h3>
-          <h4>Full-stack | HTML, CSS, JavaScript</h4>
+          <h4>Full-stack MERN developer | HTML, CSS, JavaScript</h4>
           <div>
             <p className="aboutContent">
             I'm Eli, a full-stack developer specialising in the MERN software stack, which includes MongoDB, Express.js, React, and Node.js. With expertise in these technologies, I build robust and scalable web applications. I'm passionate about continuous learning and constantly strive to enhance my skills to provide the best possible service to my clients.

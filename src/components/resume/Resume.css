@@ -1,0 +1,74 @@
+.resume {
+    background-color: var(--darker);
+    height: calc(100vh - 45px);
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  
+  #innerResume {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(66, 66, 66, 0.808);
+    padding: 10px;
+  }
+  
+  #resume-article {
+    width: 900px;
+    height: 700px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #resume-article h3 {
+    color: white;
+    font-family: "Prompt", Helvetica, sans-serif;
+    font-size: 100px;
+    font-weight:900
+  }
+  
+  #resume-article h4 {
+    color: var(--meddark);
+    font-family: "Prompt", Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: -3px;
+    padding-bottom: 0px;
+    font-style: italic;
+  }
+  
+  #resume-article div {
+    
+  }
+ 
+  #resumeIcon {
+    padding: 80px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #resume-article div {
+      margin-left: 0;
+      width: 60%;
+      margin-right: 0;
+      font-size: 2.4vw;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+      #resume-article div {
+        margin-left: 0;
+        width: 60%;
+        margin-right: 0;
+        font-size: 3.4vw;
+      }
+    }
+  
