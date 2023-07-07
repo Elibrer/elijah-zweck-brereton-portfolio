@@ -15,9 +15,7 @@ const Resume = () => {
               <li>Solid HTML Design</li>
               <li>Advanced CSS styling</li>
               <li>
-                Strong grasp of JavaScript fundamentals and advanced concepts
-                including Object-Oriented Programming, Functional Programming,
-                Asynchronous Programming, and more.
+                Strong grasp of JavaScript fundamentals and advanced concepts including Object-Oriented Programming, Functional Programming, Asynchronous Programming, and more.
               </li>
               <li>Competence in Handlebars.js</li>
               <li>Github version control</li>
@@ -31,8 +29,7 @@ const Resume = () => {
               <li>Third-party API integration</li>
               <li>RESTful API design</li>
               <li>
-                Experience in server-side development using Node.js and
-                Express.js
+                Experience in server-side development using Node.js and Express.js
               </li>
               <li>MySQL and Sequelize ORM</li>
               <li>MVC design pattern</li>

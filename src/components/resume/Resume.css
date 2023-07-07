@@ -9,10 +9,11 @@
   justify-content: center;
 }
 
-#resume-article, #info-article {
+#resume-article,
+#info-article {
   display: flex;
   flex-direction: column;
-  margin-top:5%;
+  margin-top: 5%;
   align-items: center;
   max-height: 100%;
   overflow: hidden;
@@ -21,14 +22,13 @@
 }
 
 .innerCard {
-    padding-top:15px;
-    background-color: rgba(66, 66, 66, 0.808);
-    width:90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-
+  padding-top: 15px;
+  background-color: rgba(66, 66, 66, 0.808);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 .resumeHeaders {
@@ -40,41 +40,37 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-} 
-
-.liHeaders {
-    font-weight: 900;
-    font-size: 20px;
-    font-family: "Prompt", Helvetica, sans-serif;
-    color: var(--white);
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
 }
 
+.liHeaders {
+  font-weight: 900;
+  font-size: 20px;
+  font-family: "Prompt", Helvetica, sans-serif;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
 
 #proficiencies {
-    align-items: flex-start;
-margin-top:auto;
-margin-bottom:auto;
-    color: var(--light);
-    font-size: 18px;
-    width: 80%;
-
+  align-items: flex-start;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: var(--light);
+  font-size: 18px;
+  width: 80%;
 }
 
 .star-list {
-    list-style-type: none;
-    padding-left: 1em; 
-  }
-  
-  .star-list li::before {
-    content: "★"; 
-    display: inline-block;
-    margin-right: 0.5em; 
-  }
+  list-style-type: none;
+  padding-left: 1em;
+}
 
-
+.star-list li::before {
+  content: "★";
+  display: inline-block;
+  margin-left: -1em;
+}
 
 #innerResume {
   position: relative;
@@ -86,7 +82,7 @@ margin-bottom:auto;
     width: 100%;
   }
   .resume {
-    height:auto;
+    height: auto;
     flex-direction: column;
   }
   #info-article {
@@ -96,6 +92,6 @@ margin-bottom:auto;
     width: 100%;
   }
   #proficiencies {
-    width:90%;
+    width: 90%;
   }
 }
