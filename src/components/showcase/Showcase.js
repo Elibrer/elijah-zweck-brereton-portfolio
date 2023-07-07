@@ -140,11 +140,13 @@ const Showcase = () => {
             alt="Insomnia screenshot of social network api routes"
           />
           <div className="card-buttons d-flex flex-column text-center">
-            <p
-              
+          <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/Elibrer/social-network-api/"
             >
               Social Network API
-            </p>
+            </a>
             <a
               rel="noopener noreferrer"
               target="_blank"
