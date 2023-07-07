@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import Showcase from "./components/showcase/Showcase";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
+import Resume from "./components/resume/Resume";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/showcase" element={<Showcase />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/resume" element={<Resume />} />
           </Routes>
           <div className="footerCard">
             <h6 id="footerText">
