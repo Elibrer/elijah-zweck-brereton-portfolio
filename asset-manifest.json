@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/elijah-zweck-brereton-portfolio/static/css/main.c1a845da.css",
-    "main.js": "/elijah-zweck-brereton-portfolio/static/js/main.926529d0.js",
+    "main.css": "/elijah-zweck-brereton-portfolio/static/css/main.0632be14.css",
+    "main.js": "/elijah-zweck-brereton-portfolio/static/js/main.b60c8a7c.js",
     "static/media/profile-1.png": "/elijah-zweck-brereton-portfolio/static/media/profile-1.24407d56c849113e9615.png",
     "static/media/eli-full.JPEG": "/elijah-zweck-brereton-portfolio/static/media/eli-full.6c17b410590e0786097f.JPEG",
     "static/media/outfit-forecast.png": "/elijah-zweck-brereton-portfolio/static/media/outfit-forecast.e9a236992fb259812b5c.png",
@@ -11,15 +11,16 @@
     "static/media/zLogo.png": "/elijah-zweck-brereton-portfolio/static/media/zLogo.f4a0da88ec0177e33bc4.png",
     "static/media/socialNetworkApi.png": "/elijah-zweck-brereton-portfolio/static/media/socialNetworkApi.ce62028a80adefa4ef34.png",
     "static/media/zweck-tech-login.png": "/elijah-zweck-brereton-portfolio/static/media/zweck-tech-login.07598bc374394a104b92.png",
+    "static/media/Elijah_Brereton_Resume_2023.pdf": "/elijah-zweck-brereton-portfolio/static/media/Elijah_Brereton_Resume_2023.06648d0b859e0e5ebb3b.pdf",
     "static/media/linkedin.png": "/elijah-zweck-brereton-portfolio/static/media/linkedin.45403bbe97c75d160afc.png",
     "static/media/pwaapp.png": "/elijah-zweck-brereton-portfolio/static/media/pwaapp.ed4096418b7013795d7e.png",
     "static/media/githubLogo.png": "/elijah-zweck-brereton-portfolio/static/media/githubLogo.ed1c06d925fff0b57e32.png",
     "index.html": "/elijah-zweck-brereton-portfolio/index.html",
-    "main.c1a845da.css.map": "/elijah-zweck-brereton-portfolio/static/css/main.c1a845da.css.map",
-    "main.926529d0.js.map": "/elijah-zweck-brereton-portfolio/static/js/main.926529d0.js.map"
+    "main.0632be14.css.map": "/elijah-zweck-brereton-portfolio/static/css/main.0632be14.css.map",
+    "main.b60c8a7c.js.map": "/elijah-zweck-brereton-portfolio/static/js/main.b60c8a7c.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1a845da.css",
-    "static/js/main.926529d0.js"
+    "static/css/main.0632be14.css",
+    "static/js/main.b60c8a7c.js"
   ]
 }
