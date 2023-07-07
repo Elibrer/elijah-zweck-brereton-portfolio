@@ -257,7 +257,7 @@ const Contact = () => {
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://docs.google.com/document/d/12phLBkwi58gwgJyhvMnLK1zqO_k1pYhpQmv9rfihqJ4/edit?usp=sharing"
+                href="https://drive.google.com/file/d/1MmjeUGCkxKO8AXKrfxjvNl7O5zueUAFa/view?usp=sharing"
               >
                 <img
                   src={resumeIcon}

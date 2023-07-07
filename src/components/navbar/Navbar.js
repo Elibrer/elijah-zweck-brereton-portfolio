@@ -122,6 +122,18 @@ const Navbar = () => {
                 </div>
               </NavLink>
             </li>
+            <li className={isSelected === "resume" ? "selected" : ""}>
+              <NavLink
+                className="NavLink"
+                to="/resume"
+                onClick={() => setIsSelected("resume")}
+              >
+                <div className="navEl d-flex flex-column justfiy-content-center align-items-center ">
+                  <i className="fa fa-file" style={{ fontSize: "2em" }}></i>
+                  <h1>RESUME</h1>
+                </div>
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </div>
