@@ -27,6 +27,28 @@
   border: 1px solid var(--light);
 }
 
+.descriptionBox {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.flexBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.descriptionText {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
 .showcaseImg {
   position: relative;
   width: 100%;
@@ -39,7 +61,7 @@
 }
 
 .sccards .card-buttons {
-  width: 100%;
+  width:80%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -57,10 +79,7 @@
 }
 
 .sccards .card-buttons a {
-  width: 100%;
   display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
   color: white;
   font-weight: bolder;
   border: none;
@@ -71,8 +90,10 @@
 }
 
 .iconImg {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
+  padding: 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,4 +1,5 @@
 import React from "react";
+import { MdLink } from "react-icons/md";
 import "./Showcase.css";
 
 import sportsTeamManager from "../../assets/images/sports-team-manager.png";
@@ -8,11 +9,55 @@ import zweckTechBlog from "../../assets/images/zweck-tech-login.png";
 import githubIcon from "../../assets/images/githubLogo.png";
 import pwaTextEditor from "../../assets/images/pwaapp.png";
 import socialNetworkApi from "../../assets/images/socialNetworkApi.png";
+import heyListen from "../../assets/images/heyListen.png";
 
 const Showcase = () => {
   return (
     <section className="showcase" id="showcase">
       <section className="showcaseCards">
+        <div className="sccards">
+          <img
+            className="showcaseImg"
+            src={heyListen}
+            alt="Hey! Listen! home page."
+          />
+          <div className="card-buttons d-flex flex-column text-center">
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://hey-listen-sound-caafe84374e5.herokuapp.com/"
+            >
+              Hey! Listen!
+            </a>
+            <div className="descriptionBox">
+              <text className="descriptionText">
+                An online marketplace forum where users can collaborate on music
+                related projects together!
+              </text>
+            </div>
+            <div className="flexBox mt-4">
+              <text className="descriptionText">Link to deployed application:</text>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://hey-listen-sound-caafe84374e5.herokuapp.com/"
+              >
+                <MdLink className="iconImg" />
+              </a>
+            </div>
+            <div className="flexBox">
+              <text className="descriptionText">GitHub:</text>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://github.com/Sype7973/Hey-Listen/"
+              >
+                <img className="iconImg" src={githubIcon} alt="Github icon" />
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="sccards">
           <img
             className="showcaseImg"
@@ -140,7 +185,7 @@ const Showcase = () => {
             alt="Insomnia screenshot of social network api routes"
           />
           <div className="card-buttons d-flex flex-column text-center">
-          <a
+            <a
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/Elibrer/social-network-api/"
