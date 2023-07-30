@@ -1,5 +1,5 @@
 import React from "react";
-import ResumePDF from "../../assets/files/Elijah_Brereton_Resume_2023.pdf";
+import ResumePDF from "../../assets/files/Elijah_Brereton_CV_2023.pdf";
 import "./Resume.css";
 
 const Resume = () => {
