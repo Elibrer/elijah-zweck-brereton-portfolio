@@ -1,0 +1,33 @@
+.name-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .name-animation span {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: nameSlideIn 2.5s cubic-bezier(0.1, 1, 0.4, 1); /* Adjust the animation duration and timing function */
+  }
+  
+  @keyframes nameSlideIn {
+    0% {
+      transform: translateX(-500%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .name-animation span:last-child {
+    animation: nameSlideInReverse 2.5s cubic-bezier(0.1, 1, 0.4, 1); /* Apply the same timing function to the reverse animation */
+  }
+  
+  @keyframes nameSlideInReverse {
+    0% {
+      transform: translateX(500%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
