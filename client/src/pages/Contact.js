@@ -1,0 +1,628 @@
+import React, { useState, useEffect } from "react";
+import instaLogo from "../assets/images/ig.png";
+import linkedinLogo from "../assets/images/linkedin.png";
+import resumeIcon from "../assets/images/resumeIcon.png";
+import githubIcon from "../assets/images/githubLogo.png";
+import { Link } from "react-router-dom";
+import {
+  Heading,
+  Flex,
+  Text,
+  Box,
+  Image,
+  Divider,
+  Button,
+  useMediaQuery,
+  Card,
+  CardBody,
+  Input,
+  Select,
+  Textarea,
+  Checkbox,
+} from "@chakra-ui/react";
+
+const Contact = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [countryList, setCountryList] = useState("Australia");
+  const [otherCountry, setOtherCountry] = useState("");
+  const [country, setCountry] = useState("");
+  const [enquiry, setEnquiry] = useState("");
+  const [shareAgree, setShareAgree] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [thanksMessage, setThanksMessage] = useState("");
+  const [fieldRequired, setFieldRequired] = useState("");
+  const [submitForm, setSubmitForm] = useState("");
+  const [submitPressed, setSubmitPressed] = useState(false);
+
+  const [nameEl, setNameEl] = useState("Name");
+  const [emailEl, setEmailEl] = useState("E-mail");
+  const [phoneEl, setPhoneEl] = useState("Phone");
+  const [countryEl, setCountryEl] = useState("Country");
+  const [hiddenEl, setHiddenEl] = useState("hidden");
+
+  const [fullName, setFullName] = useState(firstName + " " + lastName);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setThanksMessage("");
+    setSubmitPressed(true);
+    if (
+      (shareAgree === true &&
+        (!firstName || !lastName || !email || !phone || !enquiry)) ||
+      (shareAgree === false && !enquiry)
+    ) {
+      setSubmitMessage("Please fill out all required* fields");
+      return;
+    }
+    setSubmitMessage("");
+    setFullName(firstName + " " + lastName);
+
+    if (countryList === "Other") {
+      if (otherCountry) {
+        setCountry(otherCountry);
+        setSubmitMessage("");
+      } else {
+        setSubmitMessage("Please enter a country.");
+        return;
+      }
+    } else {
+      setCountry(countryList);
+      setSubmitMessage("");
+    }
+
+    if (shareAgree === true) {
+      const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
+      if (!emailRegex.test(email)) {
+        setSubmitMessage("Please enter a valid email address.");
+        return;
+      }
+      const phoneRegex = /^(\+?61|0)4[0-9]{8}$/;
+      if (!phoneRegex.test(phone)) {
+        setSubmitMessage("Please enter a valid phone number.");
+        return;
+      }
+
+      setSubmitForm({
+        Name: fullName,
+        Email: email,
+        Phone: phone,
+        Country: country,
+        Enquiry: enquiry,
+      });
+    } else {
+      setSubmitForm({
+        Name: "Anonymous",
+        Enquiry: enquiry,
+      });
+    }
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setCountryList("Australia");
+    setOtherCountry("");
+    setEnquiry("");
+    setNameEl("Name");
+    setEmailEl("E-mail");
+    setPhoneEl("Phone");
+    setCountryEl("Country");
+    setShareAgree(false);
+    document.getElementById("agreement").checked = false;
+    setCountry("");
+    setThanksMessage(
+      "Thank you for your enquiry. I will get back to you as soon as possible."
+    );
+  };
+
+  useEffect(() => {
+    console.log(submitForm);
+  }, [submitForm]);
+
+  const checkOnBlur = (e) => {
+    console.log(e.target.value);
+    if (e.target.value !== "") {
+      setFieldRequired("");
+    }
+
+    if (e.target.value === "") {
+      switch (e.target.getAttribute("data-key")) {
+        case "firstName":
+          if (shareAgree === true) {
+            setFieldRequired("firstName");
+          }
+          break;
+        case "lastName":
+          if (shareAgree === true) {
+            setFieldRequired("lastName");
+            console.log(fieldRequired);
+          }
+          break;
+        case "email":
+          if (shareAgree === true) {
+            setFieldRequired("email");
+          }
+          break;
+        case "phone":
+          if (shareAgree === true) {
+            setFieldRequired("phone");
+          }
+          break;
+        case "enquiry":
+          setFieldRequired("enquiry");
+          break;
+        default:
+          setFieldRequired("");
+      }
+    }
+  };
+
+  const handleCheckboxChange = (e) => {
+    if (e.target.checked) {
+      setNameEl("Name*");
+      setEmailEl("E-mail*");
+      setPhoneEl("Phone*");
+      setCountryEl("Country*");
+      setFieldRequired("");
+      console.log(fieldRequired);
+      setShareAgree(true);
+    } else {
+      setNameEl("Name");
+      setEmailEl("E-mail");
+      setPhoneEl("Phone");
+      setCountryEl("Country");
+      setFieldRequired("");
+
+      setShareAgree(false);
+    }
+  };
+
+  useEffect(() => {
+    if (countryList === "Other") {
+      setHiddenEl("unhidden");
+      if (otherCountry) {
+        setCountry(otherCountry);
+        setSubmitMessage("");
+      }
+    } else {
+      setCountry(countryList);
+      setHiddenEl("hidden");
+    }
+  }, [countryList, otherCountry]);
+
+  const handleOtherCountry = (e) => {
+    setOtherCountry(e);
+  };
+
+  const handleCountrySelect = (e) => {
+    setCountryList(e);
+  };
+
+  return (
+    <Flex
+      className="contact"
+      alignItems="center"
+      justifyContent="center"
+      bg="#e4dfd3"
+      h="calc(100vh - 120px)"
+      overflow="hidden"
+    >
+      <Flex
+        className="ctcards container"
+        flexDir="row"
+        h="auto"
+        justifyContent="space-around"
+      >
+        <Box
+          pl="120px"
+          id="contact-card-container"
+          display="flex"
+          justifyContent="center"
+          h="auto"
+          w="50%"
+        >
+          <Box className="contact-card" w="100%" fontSize="20px">
+            <Text
+              className="detailsHeader"
+              w="100%"
+              fontSize="60px"
+              color="slategray"
+              textShadow="1px 1px #ffffff"
+              fontFamily="'DM Serif Display', sans-serif"
+              fontWeight="400"
+            >
+              Contact Details
+            </Text>
+              <Text>Elijah Brereton</Text>
+              <Text>
+                Email :
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="mailto: eli.brer@gmail.com"
+                >
+                  {" "}
+                  eli.brer@gmail.com
+                </a>
+              </Text>
+              <Text>
+                Ph. :
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="tel:+61423047693"
+                >
+                  {" "}
+                  0423 047 693
+                </a>
+              </Text>
+              <Text display="flex">
+                GitHub:
+                <Link
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  to="https://github.com/elibrer"
+                >
+                  <Image
+                    src={githubIcon}
+                    alt="GitHub icon"
+                    h="30px"
+                    w="30px"
+                    margin="0px 5px"
+                    color="var(--med)"
+                  />
+                </Link>
+              </Text>
+              <Text display="flex">
+                LinkedIn:
+                <Link
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  to="https://www.linkedin.com/in/eli-brereton-172444164"
+                >
+                  <Image
+                    src={linkedinLogo}
+                    alt="linkedIn logo"
+                    h="30px"
+                    w="30px"
+                    margin="0px 5px"
+                    color="var(--med)"
+                  />
+                </Link>
+              </Text>
+              <Text display="flex">
+                Instagram:
+                <Link
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  to="https://instagram.com/mrzweck"
+                >
+                  <Image
+                    src={instaLogo}
+                    alt="instagram logo"
+                    h="30px"
+                    w="30px"
+                    margin="0px 5px"
+                    color="var(--med)"
+                  />
+                </Link>
+              </Text>
+              <Text display="flex">
+                Resume:
+                <Link
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  to="https://drive.google.com/file/d/1MmjeUGCkxKO8AXKrfxjvNl7O5zueUAFa/view?usp=sharing"
+                >
+                  <Image
+                    src={resumeIcon}
+                    alt="Resume icon"
+                    h="30px"
+                    w="30px"
+                    margin="0px 5px"
+                    color="var(--med)"
+                  />
+                </Link>
+              </Text>
+          </Box>
+        </Box>
+        <Box
+          display="flex"
+          position="relative"
+          flexWrap="wrap"
+          flexDir="column"
+          justifyContent="space-evenly"
+          w="50%"
+          p="10px"
+          borderRadius="5px"
+        >
+          <Box w="100%" p="10px 0px" m="0">
+            <Heading
+              fontSize="20px"
+              color="var(--navy)"
+              margin="0 5px"
+              fontWeight="400"
+            >
+              {nameEl}
+            </Heading>
+            <Flex
+              className="cardInputs"
+              flexGrow={1}
+              flexWrap="wrap"
+              position="relative"
+              flexDir="row"
+              justifyContent="space-evenly"
+              alignItems="center"
+            >
+              <Box flexGrow={1} margin="0 2px">
+                {/* <label htmlFor="first-name"></label> */}
+                <Input
+                  onBlur={(e) => checkOnBlur(e)}
+                  data-key="firstName"
+                  id="first-name"
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  border=".4px solid #868686"
+                />
+                <Heading
+                  fontSize="15px"
+                  fontWeight="200"
+                  margin="0 5px"
+                  display="flex"
+                  flexDir="row"
+                  alignItems="center"
+                >
+                  First Name{" "}
+                  <Text
+                    m="0"
+                    ml="20px"
+                    fontSize="13px"
+                    color="red"
+                    display={fieldRequired === "firstName" ? "" : "none"}
+                  >
+                    Field required*
+                  </Text>
+                </Heading>
+              </Box>
+              <Box className="inputStyle" flexGrow={1} margin="0 2px">
+                {/* <label htmlFor="last-name"></label> */}
+                <Input
+                  onBlur={checkOnBlur}
+                  data-key="lastName"
+                  id="last-name"
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  border=".4px solid #868686"
+
+                />
+                <Heading
+                  fontSize="15px"
+                  fontWeight="200"
+                  margin="0 5px"
+                  display="flex"
+                  flexDir="row"
+                  alignItems="center"
+                >
+                  Last Name
+                  <Text
+                    m="0"
+                    ml="20px"
+                    fontSize="13px"
+                    color="red"
+                    display={fieldRequired === "lastName" ? "" : "none"}
+                  >
+                    Field required*
+                  </Text>
+                </Heading>
+              </Box>
+            </Flex>
+          </Box>
+          <Box p="10px 0" m="0" w="100%">
+            <Heading
+              fontSize="20px"
+              color="var(--navy)"
+              margin="0 5px"
+              fontWeight="400"
+              display="flex"
+              flexDir="row"
+              alignItems="center"
+            >
+              {emailEl}
+              <Text
+                m="0"
+                ml="20px"
+                fontSize="13px"
+                color="red"
+                display={fieldRequired === "email" ? "" : "none"}
+              >
+                Field required*
+              </Text>
+            </Heading>
+            <Box flexGrow={1} margin="0 2px">
+              {/* <label htmlFor="email"></label> */}
+              <Input
+                onBlur={checkOnBlur}
+                data-key="email"
+                id="email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                border=".4px solid #868686"
+
+              />
+            </Box>
+          </Box>
+          <Box p="10px 0" m="0" w="100%">
+            <Heading
+              fontSize="20px"
+              color="var(--navy)"
+              margin="0 5px"
+              fontWeight="400"
+              display="flex"
+              flexDir="row"
+              alignItems="center"
+            >
+              {phoneEl}
+              <Text
+                m="0"
+                ml="20px"
+                fontSize="13px"
+                color="red"
+                display={fieldRequired === "phone" ? "" : "none"}
+              >
+                Field required*
+              </Text>
+            </Heading>
+            <Box flexGrow={1} margin="0 2px">
+              {/* <label htmlFor="phone"></label> */}
+              <Input
+                onBlur={checkOnBlur}
+                data-key="phone"
+                id="phone"
+                type="text"
+                name="phone"
+                value={phone}
+                pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+                onChange={(e) => setPhone(e.target.value)}
+                border=".4px solid #868686"
+
+              />
+            </Box>
+          </Box>
+          <Box p="10px 0" m="0" w="100%">
+            <Heading
+              fontSize="20px"
+              color="var(--navy)"
+              margin="0 5px"
+              fontWeight="400"
+            >
+              {countryEl}
+            </Heading>
+            <Box flexGrow={1} margin="0 2px">
+              {/* <label htmlFor="country"></label> */}
+              <Select
+                id="country"
+                value={countryList}
+                onChange={(e) => handleCountrySelect(e.target.value)}
+                cursor="pointer"
+                border=".4px solid #868686"
+
+              >
+                <option defaultValue>Australia</option>
+                <option>USA</option>
+                <option>Great Britain</option>
+                <option>Other</option>
+
+              </Select>
+              <Input
+                onBlur={checkOnBlur}
+                mt="2"
+                display={hiddenEl === "hidden" ? "none" : ""}
+                type="text"
+                name="otherCountry"
+                value={otherCountry}
+                onChange={(e) => handleOtherCountry(e.target.value)}
+                border=".4px solid #868686"
+
+              />
+            </Box>
+          </Box>
+          <Box p="10px 0" m="0" w="100%">
+            <Heading
+              fontSize="20px"
+              color="var(--navy)"
+              margin="0 5px"
+              fontWeight="400"
+              display="flex"
+              flexDir="row"
+              alignItems="center"
+            >
+              Enquiry*
+              <Text
+                m="0"
+                ml="20px"
+                fontSize="13px"
+                color="red"
+                display={fieldRequired === "enquiry" ? "" : "none"}
+              >
+                Field required*
+              </Text>
+            </Heading>
+            <Box
+              flexGrow={1}
+              margin="0 2px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {/* <label htmlFor="enquiry"></label> */}
+              <Textarea
+                onBlur={checkOnBlur}
+                data-key="enquiry"
+                id="enquiry"
+                value={enquiry}
+                onChange={(e) => setEnquiry(e.target.value)}
+                border=".4px solid #868686"
+
+              ></Textarea>
+            </Box>
+          </Box>
+          <Text color="red" display={submitPressed ? "" : "none"}>
+            {submitMessage}
+          </Text>
+          <Box className="inputTypes">
+            <Box
+              flexGrow={1}
+              margin="0 2px"
+              display="flex"
+              flexDir="row"
+              justifyContent="left"
+              alignItems="center"
+              mb="5px"
+            >
+              <Checkbox
+                className="checkbox"
+                id="agreement"
+                type="checkbox"
+                value={shareAgree}
+                onChange={handleCheckboxChange}
+                border=".4px solid #868686"
+
+              />
+              {/* <label htmlFor="agreement" className="align-items-center"> */}
+              <Text m="0 5px">
+                I agree to share my contact details with ZweckDev
+              </Text>
+              {/* </label> */}
+            </Box>
+          </Box>
+          <Box className="inputTypes">
+            <Box flexGrow={1} margin="0 2px">
+              <Input
+                w="100%"
+                color="var(--white)"
+                bg="slategray"
+                border="none"
+                borderRadius="4px"
+                cursor="pointer"
+                transition="all 0.5s ease-in-out"
+                _hover={{ bg: "var(--coral)" }}
+                type="submit"
+                value="Submit"
+                onClick={handleSubmit}
+              />
+            </Box>
+            <Text id="thanksMessage">{thanksMessage}</Text>
+          </Box>
+        </Box>
+      </Flex>
+    </Flex>
+  );
+};
+
+export default Contact;
