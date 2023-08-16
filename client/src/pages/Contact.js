@@ -3,6 +3,9 @@ import instaLogo from "../assets/images/ig.png";
 import linkedinLogo from "../assets/images/linkedin.png";
 import resumeIcon from "../assets/images/resumeIcon.png";
 import githubIcon from "../assets/images/githubLogo.png";
+import { useQuery, useMutation } from "@apollo/client";
+import { UPDATE_USER, ADD_USER, DELETE_USER } from "../utils/mutations";
+import { GET_USERS, GET_USER } from "../utils/queries";
 import { Link } from "react-router-dom";
 import {
   Heading,
@@ -10,11 +13,6 @@ import {
   Text,
   Box,
   Image,
-  Divider,
-  Button,
-  useMediaQuery,
-  Card,
-  CardBody,
   Input,
   Select,
   Textarea,
@@ -22,6 +20,12 @@ import {
 } from "@chakra-ui/react";
 
 const Contact = () => {
+  //const { data: user } = useQuery(GET_USER);
+  const { data: allUsers, refetch } = useQuery(GET_USERS);
+  const [updateUser] = useMutation(UPDATE_USER);
+  const [addUser] = useMutation(ADD_USER);
+  const [deleteUser] = useMutation(DELETE_USER);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -44,10 +48,25 @@ const Contact = () => {
 
   const [fullName, setFullName] = useState(firstName + " " + lastName);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    console.log("All users: ", allUsers);
+  }, [allUsers]);
+
+  const handleRefetch = () => {
+    refetch();
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setThanksMessage("");
     setSubmitPressed(true);
+
+    const existingUser = allUsers.getUsers.find((user) => user.email === email);
+
+    const newEnquiryArr = existingUser
+      ? [...existingUser.enquiries, enquiry]
+      : [enquiry];
+
     if (
       (shareAgree === true &&
         (!firstName || !lastName || !email || !enquiry)) ||
@@ -85,6 +104,36 @@ const Contact = () => {
         );
         return;
       }
+
+      const userData = {
+        id: existingUser ? existingUser._id : "",
+        firstName: firstName,
+        lastName: lastName,
+        country: country,
+        phoneNumber: phone,
+        email: email,
+        enquiries: newEnquiryArr,
+      };
+
+      if (existingUser) {
+        console.log("User exists");
+        const updatedUser = await updateUser({ variables: userData });
+        console.log(updatedUser);
+      } else {
+        console.log("User doesn't exist");
+        const addedUser = await addUser({
+          variables: {
+            firstName: firstName,
+            lastName: lastName,
+            country: country,
+            phoneNumber: phone,
+            email: email,
+            enquiries: newEnquiryArr,
+          },
+        });
+        console.log(addedUser);
+      }
+
       setSubmitForm({
         Name: fullName,
         Email: email,
@@ -93,11 +142,37 @@ const Contact = () => {
         Enquiry: enquiry,
       });
     } else {
+      console.log("Egg");
+
+      const userData = {
+        id: existingUser ? existingUser._id : "",
+        email: email,
+        enquiries: newEnquiryArr,
+      };
+      if (existingUser) {
+        console.log("User exists");
+        const updatedUser = await updateUser({ variables: userData });
+        console.log(updatedUser);
+      } else {
+        console.log("User doesn't exist");
+        const addedUser = await addUser({
+          variables: {
+            firstName: "Anonymous",
+            email: email,
+            enquiries: newEnquiryArr,
+          },
+        });
+        console.log(addedUser);
+      }
+
       setSubmitForm({
         Name: "Anonymous",
         Enquiry: enquiry,
       });
     }
+
+    handleRefetch();
+
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -115,9 +190,9 @@ const Contact = () => {
     );
   };
 
-  useEffect(() => {
-    console.log(submitForm);
-  }, [submitForm]);
+  // useEffect(() => {
+  //   console.log(submitForm);
+  // }, [submitForm]);
 
   const checkOnBlur = (e) => {
     console.log(e.target.value);

@@ -20,7 +20,7 @@ const Footer = () => {
         setBgColor("slategray");
         break;
       case "/about":
-        setBgColor("var(--navy)");
+        setBgColor("slategray");
         break;
       case "/contact":
         setBgColor("var(--navy)");

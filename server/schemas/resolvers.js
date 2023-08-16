@@ -20,19 +20,21 @@ const resolvers = {
 
     addUser: async (parent, args) => {
       console.log(args);
+
+
       const user = await User.create(args);
 
       return user;
     },
 
     updateUser: async (parent, args) => {
-      const { ...updateData } = args;
-      console.log("Update Data, ", updateData);
 
+      console.log(args);
+      
         try {
           const user = await User.findByIdAndUpdate(
-            { _id: updateData._id },
-            { $set: { ...updateData } },
+            { _id: args._id },
+            { $set: args },
             { new: true }
           );
           return user;
