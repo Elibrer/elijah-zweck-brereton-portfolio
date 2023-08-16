@@ -13,7 +13,7 @@ import aboutImage from "../assets/images/aboutImage.png";
 const About = () => {
   return (
     <Box
-      bg="#e4dfd3"
+      bg="var(--navy)"
       className="about"
       id="about"
       h="calc(100vh - 120px)"

@@ -27,16 +27,22 @@ const Home = () => {
   const featuredRef = useRef(null);
 
   const scrollToMe = () => {
-    meRef.current.scrollIntoView({
+    const yOffset = -80;
+    const targetPosition = meRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  
+    window.scrollTo({
+      top: targetPosition,
       behavior: "smooth",
-      block: "start",
     });
   };
 
   const scrollToFeatured = () => {
-    featuredRef.current.scrollIntoView({
+    const yOffset = -80; 
+    const targetPosition = featuredRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({
+      top: targetPosition,
       behavior: "smooth",
-      block: "start",
     });
   };
 
@@ -55,7 +61,7 @@ const Home = () => {
           textShadow="1px 1px #ffffff"
         >
           <Flex
-            className="name-animation" // Add the animation class here
+            className="name-animation"
             align="center"
           >
             <Heading
@@ -85,18 +91,20 @@ const Home = () => {
           >
             Full stack development
           </Text>
-          <Icon _hover={{ cursor: "pointer" }} boxSize="70px">
+          <Icon color="slategray" transition="color 0.8s"
+           _hover={{ cursor: "pointer", color:"#adb6c0" }} boxSize="70px">
             <BsArrowDownCircleFill onClick={scrollToMe} />
           </Icon>
         </Box>
       </Box>
-      <Card
+      <Box
         p="50px"
         display="flex"
         justifyContent="center"
         alignItems="center"
         ref={meRef}
-        h="100vh"
+        h="calc(100vh - 80px)"
+        bg="slategray"
       >
         <Flex
           flexDir="column"
@@ -104,14 +112,15 @@ const Home = () => {
           alignItems="center"
           textAlign="center"
           w="70%"
+          color="white"
         >
           <Heading
             pl="3px"
             fontFamily="'DM Serif Display', sans-serif"
             fontSize="45px"
             fontWeight="400"
-            textShadow="2px 2px 2px #ffffff"
-            color="slategray"
+            textShadow="2px 2px 2px slategray"
+            color="white"
           >
             Hey, I'm Elijah.
           </Heading>
@@ -130,39 +139,33 @@ const Home = () => {
             like to get in touch.
             <br />
           </Text>
-          <Icon color="slategray" _hover={{ cursor: "pointer" }} boxSize="70px">
+          <Icon color="slategray" transition="color 0.8s"
+           _hover={{ cursor: "pointer", color:"#adb6c0" }} boxSize="70px">
             <BsArrowDownCircleFill onClick={scrollToFeatured} />
           </Icon>
         </Flex>
-      </Card>
+      </Box>
       <Flex
       ref={featuredRef}
-        h="100vh"
-        bg="slategray"
-        flexDir="column"
+        h="calc(100vh - 80px)"
+        bg="slategray"        flexDir="column"
         justifyContent="center"
         alignItems="center"
       >
         <Heading
-        h="100px"
+        h="auto"
           fontSize="60px"
           color="white"
           mb="80px"
           fontFamily={'sans-serif'}
-          fontWeight="400"
+          fontWeight="300"
+          pl="3px"
         >
           FEATURED PROJECTS
         </Heading>
         <Carousel />
-        <Heading
-        visibility="hidden"
-        h="100px"
-          fontSize="50px"
-          color="white"
-          mb="80px"
-          fontFamily={'sans-serif'}
-          fontWeight="400"
-        ></Heading>
+        
+       
       </Flex>
     </Flex>
   );

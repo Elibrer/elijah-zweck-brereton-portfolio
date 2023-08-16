@@ -1,11 +1,11 @@
-import sportsTeamManager from "../assets/images/sports-team-manager.png";
-import weatheringHeights from "../assets/images/weathering-heights.png";
+import sportsTeamManager from "../assets/images/stmBig.png";
+import weatheringHeights from "../assets/images/weatheringHeights.png";
 import outfitForecast from "../assets/images/outfit-forecast.png";
-import zweckTechBlog from "../assets/images/zweck-tech-login.png";
+import zweckTechBlog from "../assets/images/zweckTechBlog.png";
 import githubIcon from "../assets/images/githubLogo.png";
 import pwaTextEditor from "../assets/images/pwaapp.png";
 import socialNetworkApi from "../assets/images/socialNetworkApi.png";
-import heyListen from "../assets/images/heyListen.png";
+import heyListen from "../assets/images/heyListenBig.png";
 
 const showcaseData = [
     {

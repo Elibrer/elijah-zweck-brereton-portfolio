@@ -1,5 +1,14 @@
 import React from "react";
-import { Text, Flex, Box, Image, Link, Card, Heading, Divider } from "@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Box,
+  Image,
+  Link,
+  Card,
+  Heading,
+  Divider,
+} from "@chakra-ui/react";
 import ShowcaseCard from "../components/ShowcaseCard";
 
 import showcaseData from "../data/showcaseData";
@@ -197,7 +206,7 @@ import showcaseData from "../data/showcaseData";
 const Showcase = () => {
   return (
     <Flex
-      bg="slategray"
+      bg="var(--navy)"
       height="auto"
       overflow="hidden"
       display="flex"
@@ -208,34 +217,24 @@ const Showcase = () => {
     >
       <Box
         // bg="#C0B3A0"
-        p="30px"
-        pb="0"
+        py="100px"
+        
         color="#ffffff"
-        textShadow="2px 2px 2px slategray"
       >
         <Heading
-        textAlign="center"
-          fontFamily="'DM Serif Display', sans-serif"
-          fontSize="60px"
-          fontWeight="400"
-        >
-          Project and Application Showcase
-        </Heading>
-        <Text
-        fontStyle="italic"
-
           textAlign="center"
-          fontSize="30px"
+          fontSize="90px"
+          color="white"
+          fontFamily={"sans-serif"}
           fontWeight="300"
         >
-          Hover over the cards for information about each project.
-        </Text>
-        <Divider></Divider>
+          MY PROJECTS
+        </Heading>
       </Box>
       <Card
         bg="none"
         display="flex"
-        flexDirection="row"
+        flexDirection="column"
         flexWrap="wrap"
         justifyContent="center"
         alignItems="flex-start"
@@ -244,6 +243,7 @@ const Showcase = () => {
         p="10px"
       >
         {showcaseData.map((item, index) => (
+          <Flex flexDir="column">
           <ShowcaseCard
             key={index}
             title={item.title}
@@ -252,7 +252,11 @@ const Showcase = () => {
             image={item.image}
             github={item.github}
             deployedSite={item.deployedSite}
+            item={item}
+            bg="var(--navy)"
+            shadow={true}
           />
+          </Flex>
         ))}
       </Card>
     </Flex>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Box, Image, Card } from "@chakra-ui/react";
+import { Text, Flex, Box, Image, Card, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { MdLink } from "react-icons/md";
 import githubIcon from "../assets/images/githubLogo.png";
@@ -13,6 +13,9 @@ const ShowcaseCard = ({
   image,
   github,
   deployedSite,
+  item,
+  bg,
+  shadow,
 }) => {
   console.log(
     "ShowcaseCard props: ",
@@ -26,102 +29,104 @@ const ShowcaseCard = ({
   );
 
   return (
-    <Box
-      position="relative"
-      height="700px"
-      width="700px"
-      border="1px solid var(--light)"
-      _hover={{
-        "& .showcase-image": {
-          opacity: 0.1,
-        },
-        "& .inner-box": {
-          opacity: 1,
-        },
-      }}
-      m="10px"
-    >
-      <Flex
-        bg="black"
-        width="97%"
-        height="97%"
-        m="10px"
-      >
-        <Image
-          src={image}
-          position="relative"
-          objectFit="cover"
-          objectPosition="center"
-          w="100%"
-          h="100%"
-          opacity="1"
-          transition="opacity 0.5s linear"
-          alt={alt}
-          className="showcase-image"
-        />
+    <Box h="609px" w="780px">
+      <Box bg="black" borderRadius={20} h="405px" w="780px">
+        <Card bg="black" color="white" h="405px" w="780px" borderRadius={20}>
+          <Image
+            shadow={shadow ? "0px 0px 8px #111111" : "none"}
+            borderRadius={20}
+            src={item.image}
+            alt="Background"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              position: "absolute",
+              opacity: 1,
+            }}
+          />
+        </Card>
+      </Box>
+      <Flex w="100%" justifyContent="space-evenly">
         <Box
-          className="inner-box"
+          w="60%"
+          p="10px"
+          color="white"
+          textAlign="left"
           display="flex"
-          flexDirection="column"
-          textAlign="center"
-          w="80%"
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          opacity="0"
-          transition="opacity 0.5s linear"
-        >
-          <Link rel="noopener noreferrer" target="_blank" to={deployedSite}>
-            <Text fontSize="60px" color="white">
-              {" "}
-              {title}
-            </Text>
-          </Link>
-          
-            <Text color="white" textAlign="center" fontSize="1.5rem">
-              {description}
-            </Text>
-          <Box
-            display="flex"
-            flexDirection="row"
-            justifyContent="center"
-            alignItems="center"
-            mt="4px"
-          >
-            <Text textAlign="center" fontSize="30px" color="white">
-              Link to deployed application:
-            </Text>
-            <Link rel="noopener noreferrer" target="_blank" to={deployedSite}>
-              <MdLink
-                size="100px"
-                h="100px"
-                w="100px"
-                p="0"
-                m="0"
-                color="white"
-              />
-            </Link>
-          </Box>
-          <Box display="flex"
+          flexDir="column"
           justifyContent="center"
-            alignItems="center"
+          alignItems="left"
+          bg={bg}
+        >
+          <Heading
+            textTransform="uppercase"
+            fontWeight="800"
+            fontSize="16px"
+            m="0"
           >
-            <Text textAlign="center" fontSize="30px" color="white">
-              GitHub:
-            </Text>
-            <Link rel="noopener noreferrer" target="_blank" to={github}>
-              <Image
-                h="100px"
-                w="100px"
-                p="0"
-                m="0"
-                src={githubIcon}
-                alt="Github icon"
-              />
+            {item.title}
+          </Heading>
+          <Text fontSize="16px" m="0">
+            {item.description}
+          </Text>
+        </Box>
+        <Flex flexDir="row" justifyContent="center" alignItems="center" w="40%">
+          <Box mr="10px">
+            <Link
+              to={item.deployedSite}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Box
+                w="140px"
+                color="white"
+                bg={bg}
+                border="1px solid #ffffff"
+                borderRadius="999px"
+                textAlign="center"
+                p="13px 16px"
+                fontSize="14px"
+                fontWeight="500"
+                lineHeight="13px"
+                textDecoration="none"
+                transition="background 0.7s ease-in-out, border 0.7s ease-in-out"
+                _hover={{
+                  bg: "#e74c5e",
+                  borderColor: "#fff",
+                  textDecoration: "none",
+                }}
+              >
+                View Website
+              </Box>
             </Link>
           </Box>
-        </Box>
+          <Box ml="10px">
+            <Link to={item.github} rel="noopener noreferrer" target="_blank">
+              <Box
+                w="140px"
+                color="white"
+                bg={bg}
+                border="1px solid #ffffff"
+                borderRadius="999px"
+                textAlign="center"
+                p="13px 16px"
+                fontSize="14px"
+                fontWeight="500"
+                lineHeight="13px"
+                textDecoration="none"
+                transition="background 0.7s ease-in-out, border 0.7s ease-in-out"
+                _hover={{
+                  bg: "#e74c5e",
+                  borderColor: "#fff",
+                  textDecoration: "none",
+                }}
+              >
+                View GitHub
+              </Box>
+            </Link>
+          </Box>
+        </Flex>
       </Flex>
     </Box>
   );

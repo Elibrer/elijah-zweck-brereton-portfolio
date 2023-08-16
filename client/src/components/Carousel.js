@@ -8,7 +8,9 @@ import {
   Card,
   CardBody,
   Heading,
+  Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ShowcaseCard from "./ShowcaseCard";
 import showcaseData from "../data/showcaseData";
@@ -16,34 +18,18 @@ import showcaseData from "../data/showcaseData";
 const CarouselPage = () => {
   return (
     <Flex flexDir="column" justifyContent="center" alignItems="center">
-      <Box w="700px"
-      >
+      <Box w="780px">
         <Carousel
-          autoPlay={false}
-          interval={500}
+          autoPlay={true}
+          interval={5000}
           showThumbs={false}
-          stopOnHover={false}
+          stopOnHover={true}
           infiniteLoop={true}
           showStatus={false}
+          showArrows={false}
         >
           {showcaseData.map((item, index) => (
-            <Card bg="var(--navy)" color="white" h="300px">
-              <CardBody
-                p="60px"
-                textAlign="left"
-                display="flex"
-                flexDir="column"
-                justifyContent="center"
-                alignItems="left"
-              >
-                <Heading
-                fontSize="50px"
-                >{item.title}</Heading>
-                <Text
-                fontSize="20px"
-                >{item.description}</Text>
-              </CardBody>
-            </Card>
+            <ShowcaseCard item={item} bg="slategray" shadow={false} />
           ))}
         </Carousel>
       </Box>

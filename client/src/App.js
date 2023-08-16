@@ -40,10 +40,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
 function App() {
-  // const [currentPath] = useState(window.location.pathname);
   const location = useLocation();
 
   useEffect(() => {
@@ -56,18 +53,17 @@ function App() {
           <Flex flexDirection="column">
             <Header />
             <Box flex="1" zIndex="1">
-            <Routes>
-              {/* <Header currentPath={currentPath} /> */}
-              <Route path="*" element={<PageNotFound to="/404" />} />
-              <Route path ="/" element={<Home />} />
-              <Route path ="/about" element={<About />} />
-              <Route path ="/contact" element={<Contact />} />
-              <Route path ="/resume" element={<Resume />} />
-              <Route path ="/showcase" element={<Showcase />} />
+              <Routes>
+                <Route path="*" element={<PageNotFound to="/404" />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/showcase" element={<Showcase />} />
               </Routes>
             </Box>
           </Flex>
-          <Footer position="sticky" bottom={0}/>
+          <Footer position="sticky" bottom={0} />
         </ChakraProvider>
       </div>
     </ApolloProvider>

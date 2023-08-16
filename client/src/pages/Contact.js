@@ -39,8 +39,6 @@ const Contact = () => {
   const [submitPressed, setSubmitPressed] = useState(false);
 
   const [nameEl, setNameEl] = useState("Name");
-  const [emailEl, setEmailEl] = useState("E-mail");
-  const [phoneEl, setPhoneEl] = useState("Phone");
   const [countryEl, setCountryEl] = useState("Country");
   const [hiddenEl, setHiddenEl] = useState("hidden");
 
@@ -52,7 +50,7 @@ const Contact = () => {
     setSubmitPressed(true);
     if (
       (shareAgree === true &&
-        (!firstName || !lastName || !email || !phone || !enquiry)) ||
+        (!firstName || !lastName || !email || !enquiry)) ||
       (shareAgree === false && !enquiry)
     ) {
       setSubmitMessage("Please fill out all required* fields");
@@ -80,12 +78,13 @@ const Contact = () => {
         setSubmitMessage("Please enter a valid email address.");
         return;
       }
-      const phoneRegex = /^(\+?61|0)4[0-9]{8}$/;
-      if (!phoneRegex.test(phone)) {
-        setSubmitMessage("Please enter a valid phone number.");
+      const phoneRegex = /^(?:\+61|0)[4578]([0-9]{8})$/;
+      if (!phoneRegex.test(phone) && phone !== "") {
+        setSubmitMessage(
+          "Please enter a valid Australian phone number, otherwise leave phone blank."
+        );
         return;
       }
-
       setSubmitForm({
         Name: fullName,
         Email: email,
@@ -107,8 +106,6 @@ const Contact = () => {
     setOtherCountry("");
     setEnquiry("");
     setNameEl("Name");
-    setEmailEl("E-mail");
-    setPhoneEl("Phone");
     setCountryEl("Country");
     setShareAgree(false);
     document.getElementById("agreement").checked = false;
@@ -142,14 +139,7 @@ const Contact = () => {
           }
           break;
         case "email":
-          if (shareAgree === true) {
-            setFieldRequired("email");
-          }
-          break;
-        case "phone":
-          if (shareAgree === true) {
-            setFieldRequired("phone");
-          }
+          setFieldRequired("email");
           break;
         case "enquiry":
           setFieldRequired("enquiry");
@@ -163,16 +153,12 @@ const Contact = () => {
   const handleCheckboxChange = (e) => {
     if (e.target.checked) {
       setNameEl("Name*");
-      setEmailEl("E-mail*");
-      setPhoneEl("Phone*");
       setCountryEl("Country*");
       setFieldRequired("");
       console.log(fieldRequired);
       setShareAgree(true);
     } else {
       setNameEl("Name");
-      setEmailEl("E-mail");
-      setPhoneEl("Phone");
       setCountryEl("Country");
       setFieldRequired("");
 
@@ -206,7 +192,7 @@ const Contact = () => {
       className="contact"
       alignItems="center"
       justifyContent="center"
-      bg="#e4dfd3"
+      bg="var(--navy)"
       h="calc(100vh - 120px)"
       overflow="hidden"
     >
@@ -224,109 +210,109 @@ const Contact = () => {
           h="auto"
           w="50%"
         >
-          <Box className="contact-card" w="100%" fontSize="20px">
+          <Box className="contact-card" w="100%" fontSize="20px" color="white">
             <Text
               className="detailsHeader"
               w="100%"
               fontSize="60px"
-              color="slategray"
+              color="white"
               textShadow="1px 1px #ffffff"
               fontFamily="'DM Serif Display', sans-serif"
               fontWeight="400"
             >
               Contact Details
             </Text>
-              <Text>Elijah Brereton</Text>
-              <Text>
-                Email :
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href="mailto: eli.brer@gmail.com"
-                >
-                  {" "}
-                  eli.brer@gmail.com
-                </a>
-              </Text>
-              <Text>
-                Ph. :
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href="tel:+61423047693"
-                >
-                  {" "}
-                  0423 047 693
-                </a>
-              </Text>
-              <Text display="flex">
-                GitHub:
-                <Link
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  to="https://github.com/elibrer"
-                >
-                  <Image
-                    src={githubIcon}
-                    alt="GitHub icon"
-                    h="30px"
-                    w="30px"
-                    margin="0px 5px"
-                    color="var(--med)"
-                  />
-                </Link>
-              </Text>
-              <Text display="flex">
-                LinkedIn:
-                <Link
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  to="https://www.linkedin.com/in/eli-brereton-172444164"
-                >
-                  <Image
-                    src={linkedinLogo}
-                    alt="linkedIn logo"
-                    h="30px"
-                    w="30px"
-                    margin="0px 5px"
-                    color="var(--med)"
-                  />
-                </Link>
-              </Text>
-              <Text display="flex">
-                Instagram:
-                <Link
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  to="https://instagram.com/mrzweck"
-                >
-                  <Image
-                    src={instaLogo}
-                    alt="instagram logo"
-                    h="30px"
-                    w="30px"
-                    margin="0px 5px"
-                    color="var(--med)"
-                  />
-                </Link>
-              </Text>
-              <Text display="flex">
-                Resume:
-                <Link
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  to="https://drive.google.com/file/d/1MmjeUGCkxKO8AXKrfxjvNl7O5zueUAFa/view?usp=sharing"
-                >
-                  <Image
-                    src={resumeIcon}
-                    alt="Resume icon"
-                    h="30px"
-                    w="30px"
-                    margin="0px 5px"
-                    color="var(--med)"
-                  />
-                </Link>
-              </Text>
+            <Text>Elijah Brereton</Text>
+            <Text>
+              Email :
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="mailto: eli.brer@gmail.com"
+              >
+                {" "}
+                eli.brer@gmail.com
+              </a>
+            </Text>
+            <Text>
+              Ph. :
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="tel:+61423047693"
+              >
+                {" "}
+                0423 047 693
+              </a>
+            </Text>
+            <Text display="flex">
+              GitHub:
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                to="https://github.com/elibrer"
+              >
+                <Image
+                  src={githubIcon}
+                  alt="GitHub icon"
+                  h="30px"
+                  w="30px"
+                  margin="0px 5px"
+                  color="var(--med)"
+                />
+              </Link>
+            </Text>
+            <Text display="flex">
+              LinkedIn:
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                to="https://www.linkedin.com/in/eli-brereton-172444164"
+              >
+                <Image
+                  src={linkedinLogo}
+                  alt="linkedIn logo"
+                  h="30px"
+                  w="30px"
+                  margin="0px 5px"
+                  color="var(--med)"
+                />
+              </Link>
+            </Text>
+            <Text display="flex">
+              Instagram:
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                to="https://instagram.com/mrzweck"
+              >
+                <Image
+                  src={instaLogo}
+                  alt="instagram logo"
+                  h="30px"
+                  w="30px"
+                  margin="0px 5px"
+                  color="var(--med)"
+                />
+              </Link>
+            </Text>
+            <Text display="flex">
+              Resume:
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                to="https://drive.google.com/file/d/1MmjeUGCkxKO8AXKrfxjvNl7O5zueUAFa/view?usp=sharing"
+              >
+                <Image
+                  src={resumeIcon}
+                  alt="Resume icon"
+                  h="30px"
+                  w="30px"
+                  margin="0px 5px"
+                  color="var(--med)"
+                />
+              </Link>
+            </Text>
           </Box>
         </Box>
         <Box
@@ -342,7 +328,7 @@ const Contact = () => {
           <Box w="100%" p="10px 0px" m="0">
             <Heading
               fontSize="20px"
-              color="var(--navy)"
+              color="white"
               margin="0 5px"
               fontWeight="400"
             >
@@ -367,6 +353,8 @@ const Contact = () => {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   border=".4px solid #868686"
+                  color="white"
+                  disabled={!shareAgree}
                 />
                 <Heading
                   fontSize="15px"
@@ -391,6 +379,7 @@ const Contact = () => {
               <Box className="inputStyle" flexGrow={1} margin="0 2px">
                 {/* <label htmlFor="last-name"></label> */}
                 <Input
+                  color="white"
                   onBlur={checkOnBlur}
                   data-key="lastName"
                   id="last-name"
@@ -398,7 +387,7 @@ const Contact = () => {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   border=".4px solid #868686"
-
+                  disabled={!shareAgree}
                 />
                 <Heading
                   fontSize="15px"
@@ -422,52 +411,18 @@ const Contact = () => {
               </Box>
             </Flex>
           </Box>
-          <Box p="10px 0" m="0" w="100%">
-            <Heading
-              fontSize="20px"
-              color="var(--navy)"
-              margin="0 5px"
-              fontWeight="400"
-              display="flex"
-              flexDir="row"
-              alignItems="center"
-            >
-              {emailEl}
-              <Text
-                m="0"
-                ml="20px"
-                fontSize="13px"
-                color="red"
-                display={fieldRequired === "email" ? "" : "none"}
-              >
-                Field required*
-              </Text>
-            </Heading>
-            <Box flexGrow={1} margin="0 2px">
-              {/* <label htmlFor="email"></label> */}
-              <Input
-                onBlur={checkOnBlur}
-                data-key="email"
-                id="email"
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                border=".4px solid #868686"
 
-              />
-            </Box>
-          </Box>
           <Box p="10px 0" m="0" w="100%">
             <Heading
               fontSize="20px"
-              color="var(--navy)"
+              color="white"
               margin="0 5px"
               fontWeight="400"
               display="flex"
               flexDir="row"
               alignItems="center"
             >
-              {phoneEl}
+              Phone
               <Text
                 m="0"
                 ml="20px"
@@ -481,6 +436,7 @@ const Contact = () => {
             <Box flexGrow={1} margin="0 2px">
               {/* <label htmlFor="phone"></label> */}
               <Input
+                color="white"
                 onBlur={checkOnBlur}
                 data-key="phone"
                 id="phone"
@@ -490,14 +446,14 @@ const Contact = () => {
                 pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
                 onChange={(e) => setPhone(e.target.value)}
                 border=".4px solid #868686"
-
+                disabled={!shareAgree}
               />
             </Box>
           </Box>
           <Box p="10px 0" m="0" w="100%">
             <Heading
               fontSize="20px"
-              color="var(--navy)"
+              color="white"
               margin="0 5px"
               fontWeight="400"
             >
@@ -511,15 +467,16 @@ const Contact = () => {
                 onChange={(e) => handleCountrySelect(e.target.value)}
                 cursor="pointer"
                 border=".4px solid #868686"
-
+                color="white"
+                disabled={!shareAgree}
               >
-                <option defaultValue>Australia</option>
+                <option defaultValue>{shareAgree ? "Australia" : ""}</option>
                 <option>USA</option>
                 <option>Great Britain</option>
                 <option>Other</option>
-
               </Select>
               <Input
+                color="white"
                 onBlur={checkOnBlur}
                 mt="2"
                 display={hiddenEl === "hidden" ? "none" : ""}
@@ -528,14 +485,48 @@ const Contact = () => {
                 value={otherCountry}
                 onChange={(e) => handleOtherCountry(e.target.value)}
                 border=".4px solid #868686"
-
               />
             </Box>
           </Box>
           <Box p="10px 0" m="0" w="100%">
             <Heading
               fontSize="20px"
-              color="var(--navy)"
+              color="white"
+              margin="0 5px"
+              fontWeight="400"
+              display="flex"
+              flexDir="row"
+              alignItems="center"
+            >
+              E-mail*
+              <Text
+                m="0"
+                ml="20px"
+                fontSize="13px"
+                color="red"
+                display={fieldRequired === "email" ? "" : "none"}
+              >
+                Field required*
+              </Text>
+            </Heading>
+            <Box flexGrow={1} margin="0 2px">
+              {/* <label htmlFor="email"></label> */}
+              <Input
+                color="white"
+                onBlur={checkOnBlur}
+                data-key="email"
+                id="email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                border=".4px solid #868686"
+              />
+            </Box>
+          </Box>
+          <Box p="10px 0" m="0" w="100%">
+            <Heading
+              fontSize="20px"
+              color="white"
               margin="0 5px"
               fontWeight="400"
               display="flex"
@@ -562,13 +553,13 @@ const Contact = () => {
             >
               {/* <label htmlFor="enquiry"></label> */}
               <Textarea
+                color="white"
                 onBlur={checkOnBlur}
                 data-key="enquiry"
                 id="enquiry"
                 value={enquiry}
                 onChange={(e) => setEnquiry(e.target.value)}
                 border=".4px solid #868686"
-
               ></Textarea>
             </Box>
           </Box>
@@ -592,10 +583,9 @@ const Contact = () => {
                 value={shareAgree}
                 onChange={handleCheckboxChange}
                 border=".4px solid #868686"
-
               />
               {/* <label htmlFor="agreement" className="align-items-center"> */}
-              <Text m="0 5px">
+              <Text m="0 5px" color="white">
                 I agree to share my contact details with ZweckDev
               </Text>
               {/* </label> */}
@@ -604,6 +594,7 @@ const Contact = () => {
           <Box className="inputTypes">
             <Box flexGrow={1} margin="0 2px">
               <Input
+                color="white"
                 w="100%"
                 color="var(--white)"
                 bg="slategray"
