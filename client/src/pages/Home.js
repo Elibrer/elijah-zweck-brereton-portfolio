@@ -16,6 +16,7 @@ import {
   Tag,
 } from "@chakra-ui/react";
 import profileImage from "../assets/images/profile-1.png";
+import eliSmall from "../assets/images/eliSmall.JPG";
 import banner from "../assets/images/4.png";
 import About from "./About";
 import { BsArrowDownCircleFill } from "react-icons/bs";
@@ -28,8 +29,9 @@ const Home = () => {
 
   const scrollToMe = () => {
     const yOffset = -80;
-    const targetPosition = meRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-  
+    const targetPosition =
+      meRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
     window.scrollTo({
       top: targetPosition,
       behavior: "smooth",
@@ -37,8 +39,11 @@ const Home = () => {
   };
 
   const scrollToFeatured = () => {
-    const yOffset = -80; 
-    const targetPosition = featuredRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const yOffset = -80;
+    const targetPosition =
+      featuredRef.current.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset;
 
     window.scrollTo({
       top: targetPosition,
@@ -60,10 +65,7 @@ const Home = () => {
           color="slategray"
           textShadow="1px 1px #ffffff"
         >
-          <Flex
-            className="name-animation"
-            align="center"
-          >
+          <Flex className="name-animation" align="center">
             <Heading
               as="span"
               px="10px"
@@ -91,8 +93,12 @@ const Home = () => {
           >
             Full stack development
           </Text>
-          <Icon color="slategray" transition="color 0.8s"
-           _hover={{ cursor: "pointer", color:"#adb6c0" }} boxSize="70px">
+          <Icon
+            color="slategray"
+            transition="color 0.8s"
+            _hover={{ cursor: "pointer", color: "#adb6c0" }}
+            boxSize="70px"
+          >
             <BsArrowDownCircleFill onClick={scrollToMe} />
           </Icon>
         </Box>
@@ -103,7 +109,7 @@ const Home = () => {
         justifyContent="center"
         alignItems="center"
         ref={meRef}
-        h="calc(100vh - 80px)"
+        h="calc(70vh)"
         bg="slategray"
       >
         <Flex
@@ -127,45 +133,62 @@ const Home = () => {
           <Text pl="3px">
             Full stack MERN developer | HTML • CSS • JavaScript
           </Text>
-          <Text pl="3px" fontSize="20px">
-            I specialise in the MERN software stack, which includes MongoDB,
-            Express.js, React, and Node.js. I can design and build functional
-            and responsive websites and web applications for your business or
-            personal use. I can also provide ongoing support and maintenance for
-            your existing website or application.
-            <br />
-            <br />
-            Contact me if you have any questions, project inquiries, or would
-            like to get in touch.
-            <br />
-          </Text>
-          <Icon color="slategray" transition="color 0.8s"
-           _hover={{ cursor: "pointer", color:"#adb6c0" }} boxSize="70px">
+          <Flex justifyContent="center">
+            <Flex w="34%" justifyContent="center" alignItems="center">
+              <Text pl="3px" fontSize="20px" textAlign="right">
+                I specialise in the MERN software stack, which includes MongoDB,
+                Express.js, React, and Node.js. I can design and build
+                functional and responsive websites and web applications for your
+                business or personal use.
+              </Text>
+            </Flex>
+            <Flex justifyContent="center" w="340px">
+              <Image
+                src={eliSmall}
+                w="300px"
+                h="300px"
+                borderRadius={100}
+              ></Image>
+            </Flex>
+            <Flex w="34%" justifyContent="center" alignItems="center">
+              <Text pl="3px" fontSize="20px" textAlign="left">
+                I can also provide ongoing support and maintenance for your
+                existing website or application.
+                <br />
+                Contact me if you have any questions, project inquiries, or
+                would like to get in touch.
+              </Text>
+            </Flex>
+          </Flex>
+          <Icon
+            color="slategray"
+            transition="color 0.8s"
+            _hover={{ cursor: "pointer", color: "#adb6c0" }}
+            boxSize="70px"
+          >
             <BsArrowDownCircleFill onClick={scrollToFeatured} />
           </Icon>
         </Flex>
       </Box>
       <Flex
-      ref={featuredRef}
-        h="calc(100vh - 80px)"
-        bg="slategray"        flexDir="column"
-        justifyContent="center"
+        ref={featuredRef}
+        h="calc(70vh)"
+        bg="slategray"
+        flexDir="column"
         alignItems="center"
       >
         <Heading
-        h="auto"
+          h="auto"
           fontSize="60px"
           color="white"
           mb="80px"
-          fontFamily={'sans-serif'}
+          fontFamily={"sans-serif"}
           fontWeight="300"
           pl="3px"
         >
           FEATURED PROJECTS
         </Heading>
         <Carousel />
-        
-       
       </Flex>
     </Flex>
   );
