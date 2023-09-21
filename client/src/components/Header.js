@@ -121,7 +121,8 @@ const Header = () => {
               icon={<HamburgerIcon boxSize="30px" />}
               variant="outline"
               boxSize="60px"
-              ml="50px"
+              
+              mr="50px"
               onClick={toggleMenu}
             />
           </Flex>

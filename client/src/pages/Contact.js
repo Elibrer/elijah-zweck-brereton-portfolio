@@ -376,7 +376,7 @@ const Contact = () => {
               <Link
                 rel="noopener noreferrer"
                 target="_blank"
-                to="https://drive.google.com/file/d/1MmjeUGCkxKO8AXKrfxjvNl7O5zueUAFa/view?usp=sharing"
+                to="https://drive.google.com/file/d/1fld3s4yW3fA3BtE7wdQ3vABCn62aM0u3/view?usp=drive_link"
               >
                 <Image
                   src={resumeIcon}

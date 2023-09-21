@@ -173,6 +173,7 @@ const Home = () => {
       <Flex
         ref={featuredRef}
         h="calc(70vh)"
+        pb="50px"
         bg="slategray"
         flexDir="column"
         alignItems="center"
@@ -189,6 +190,7 @@ const Home = () => {
           FEATURED PROJECTS
         </Heading>
         <Carousel />
+        <Box py="400px"/>
       </Flex>
     </Flex>
   );
