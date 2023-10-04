@@ -15,7 +15,7 @@
 ## Links
 GitHub Repository: [@elibrer](https://github.com/elibrer/elijah-zweck-brereton-portfolio)
 
-Link to deployed application: [@Elijah 'Zweck' Brereton Portfolio](https://elibrer.github.io/elijah-zweck-brereton-portfolio/#/)
+Link to deployed application: [@Elijah 'Zweck' Brereton Portfolio](https://elijah-brereton-portfolio-6d2dfbb4a03e.herokuapp.com/)
 
 ---
 
