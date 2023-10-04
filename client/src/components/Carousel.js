@@ -9,6 +9,7 @@ import {
   CardBody,
   Heading,
   Button,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -16,10 +17,19 @@ import ShowcaseCard from "./ShowcaseCard";
 import showcaseData from "../data/showcaseData";
 
 const CarouselPage = () => {
+  const boxWidth = useBreakpointValue({
+    base: "370px",       // On very small devices (like smartphones)
+    sm: "480px",        // On small devices (like tablets)
+    md: "650px",        // On medium-sized devices (like desktops)
+    lg: "780px",      // On large devices
+    xl: "780px"       // On very large devices (like large screens)
+  });
+
   return (
     <Flex flexDir="column" justifyContent="center" alignItems="center">
-      <Box w="780px">
+      <Box w={boxWidth}>
         <Carousel
+        w={boxWidth}
           autoPlay={true}
           interval={5000}
           showThumbs={false}

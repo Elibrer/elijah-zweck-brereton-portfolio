@@ -8,6 +8,7 @@ import {
   Card,
   Heading,
   Divider,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import ShowcaseCard from "../components/ShowcaseCard";
 
@@ -204,6 +205,25 @@ import showcaseData from "../data/showcaseData";
 }
 
 const Showcase = () => {
+
+
+  const headerFontSize = useBreakpointValue({
+    base: "40px",
+    sm: "60px",
+    md: "80px",
+    lg: "90px",
+    xl: "90px",
+  });
+
+  const headerGap = useBreakpointValue({
+    base: "30px",
+    sm: "50px",
+    md: "50px",
+    lg: "100px",
+    xl: "100px",
+  });
+
+
   return (
     <Flex
       bg="var(--navy)"
@@ -217,13 +237,13 @@ const Showcase = () => {
     >
       <Box
         // bg="#C0B3A0"
-        py="100px"
+        py={headerGap}
         
         color="#ffffff"
       >
         <Heading
           textAlign="center"
-          fontSize="90px"
+          fontSize={headerFontSize}
           color="white"
           fontFamily={"sans-serif"}
           fontWeight="300"
@@ -241,6 +261,7 @@ const Showcase = () => {
         maxHeight="100%"
         overflow="auto"
         p="10px"
+        pt="0px"
       >
         {showcaseData.map((item, index) => (
           <Flex flexDir="column">

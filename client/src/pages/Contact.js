@@ -17,6 +17,8 @@ import {
   Select,
   Textarea,
   Checkbox,
+  useBreakpointValue,
+  useMediaQuery,
 } from "@chakra-ui/react";
 
 const Contact = () => {
@@ -262,34 +264,63 @@ const Contact = () => {
     setCountryList(e);
   };
 
+  const [isLgScreen] = useMediaQuery("(min-width: 992px)");
+
+  const headerTextSize = useBreakpointValue({
+    base: "40px", // On very small devices (like smartphones)
+    sm: "40px", // On small devices (like tablets)
+    md: "60px", // On medium-sized devices (like desktops)
+    lg: "60px", // On large devices
+    xl: "60px", // On very large devices (like large screens)
+  });
+
+  const formWidth = useBreakpointValue({
+    base: "90%", // On very small devices (like smartphones)
+    sm: "90%", // On small devices (like tablets)
+    md: "90%", // On medium-sized devices (like desktops)
+    lg: "50%", // On large devices
+    xl: "50%", // On very large devices (like large screens)
+  });
+
   return (
     <Flex
       className="contact"
       alignItems="center"
       justifyContent="center"
       bg="var(--navy)"
-      h="calc(100vh - 120px)"
+      h={isLgScreen ? "calc(100vh - 120px)" : "auto"}
       overflow="hidden"
     >
       <Flex
+              mt={isLgScreen ? "0px" : "70px"}
+
         className="ctcards container"
-        flexDir="row"
+        flexDir={isLgScreen ? "row" : "column"}
         h="auto"
         justifyContent="space-around"
+        alignItems={isLgScreen ? "start" : "center"}
       >
         <Box
-          pl="120px"
+          pl={isLgScreen ? "120px" : "0px"}
           id="contact-card-container"
           display="flex"
+          flexDir={isLgScreen ? "row" : "column"}
           justifyContent="center"
           h="auto"
-          w="50%"
+          w={formWidth}
         >
-          <Box className="contact-card" w="100%" fontSize="20px" color="white">
+          <Box
+            className="contact-card"
+            w="100%"
+            fontSize="20px"
+            color="white"
+            textAlign={isLgScreen ? "left" : "center"}
+          >
             <Text
+              textAlign={isLgScreen ? "left" : "center"}
               className="detailsHeader"
               w="100%"
-              fontSize="60px"
+              fontSize={headerTextSize}
               color="white"
               textShadow="1px 1px #ffffff"
               fontFamily="'DM Serif Display', sans-serif"
@@ -320,7 +351,10 @@ const Contact = () => {
                 0423 047 693
               </a>
             </Text>
-            <Text display="flex">
+            <Text
+              display="flex"
+              justifyContent={isLgScreen ? "left" : "center"}
+            >
               GitHub:
               <Link
                 rel="noopener noreferrer"
@@ -337,7 +371,10 @@ const Contact = () => {
                 />
               </Link>
             </Text>
-            <Text display="flex">
+            <Text
+              display="flex"
+              justifyContent={isLgScreen ? "left" : "center"}
+            >
               LinkedIn:
               <Link
                 rel="noopener noreferrer"
@@ -354,7 +391,10 @@ const Contact = () => {
                 />
               </Link>
             </Text>
-            <Text display="flex">
+            <Text
+              display="flex"
+              justifyContent={isLgScreen ? "left" : "center"}
+            >
               Instagram:
               <Link
                 rel="noopener noreferrer"
@@ -371,7 +411,10 @@ const Contact = () => {
                 />
               </Link>
             </Text>
-            <Text display="flex">
+            <Text
+              display="flex"
+              justifyContent={isLgScreen ? "left" : "center"}
+            >
               Resume:
               <Link
                 rel="noopener noreferrer"
@@ -391,15 +434,24 @@ const Contact = () => {
           </Box>
         </Box>
         <Box
+        mt={isLgScreen ? "0px" : "70px"}
           display="flex"
           position="relative"
           flexWrap="wrap"
           flexDir="column"
           justifyContent="space-evenly"
-          w="50%"
+          w={formWidth}
           p="10px"
           borderRadius="5px"
         >
+          <Heading
+            fontSize="20px"
+            color="white"
+            textAlign="center"
+            fontWeight="400"
+          >
+            Fill out the form and I'll get back to you ASAP!
+          </Heading>
           <Box w="100%" p="10px 0px" m="0">
             <Heading
               fontSize="20px"
@@ -669,7 +721,6 @@ const Contact = () => {
           <Box className="inputTypes">
             <Box flexGrow={1} margin="0 2px">
               <Input
-                color="white"
                 w="100%"
                 color="var(--white)"
                 bg="slategray"

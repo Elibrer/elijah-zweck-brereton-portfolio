@@ -40,33 +40,35 @@ const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
 
-  const [isSmScreen] = useMediaQuery("(max-width: 900px)");
+  const [isLgScreen] = useMediaQuery("(max-width: 992px)");
 
-  const handleScroll = () => {
-    if (window.scrollY > 300) {
-      setIsFixed(true);
-      setIsShrunk(true);
-    } else {
-      setIsFixed(false);
-      setIsShrunk(false);
-    }
-    if (window.scrollY < 120) {
-      setBaseOpacity(true);
-    } else {
-      setBaseOpacity(false);
-    }
-  };
+  const [isExSmScreen] = useMediaQuery("(max-width: 480px)");
+
+  // const handleScroll = () => {
+  //   if (window.scrollY > 300) {
+  //     setIsFixed(true);
+  //     setIsShrunk(true);
+  //   } else {
+  //     setIsFixed(false);
+  //     setIsShrunk(false);
+  //   }
+  //   if (window.scrollY < 120) {
+  //     setBaseOpacity(true);
+  //   } else {
+  //     setBaseOpacity(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log("Screen size changed:", isSmScreen ? "Small" : "Not Small");
-  }, [isSmScreen]);
+    console.log("Screen size changed:", isLgScreen ? "Small" : "Not Small");
+  }, [isLgScreen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -81,7 +83,7 @@ const Header = () => {
 
   return (
     <div>
-      {isSmScreen ? (
+      {isLgScreen ? (
         <>
           <Flex
             className={`header ${isFixed ? "fixed" : ""} ${
@@ -108,33 +110,34 @@ const Header = () => {
                 visibility="hidden"
                 as={IconButton}
                 aria-label="Options"
-                icon={<HamburgerIcon boxSize="30px" />}
+                icon={
+                  <HamburgerIcon boxSize={isExSmScreen ? "15px" : "30px"} />
+                }
                 variant="outline"
-                boxSize="60px"
-                ml="50px"
+                boxSize={isExSmScreen ? "40px" : "60px"}
+                ml={isExSmScreen ? "20px" : "50px"}
               />
             </Menu>
             {/* Logo */}
-            <Image boxSize={isFixed ? "80px" : "120px"} src={eliLogo} />
+            <Image boxSize={isFixed ? "80px" : "80px"} src={eliLogo} />
             <IconButton
               aria-label="Options"
-              icon={<HamburgerIcon boxSize="30px" />}
+              icon={<HamburgerIcon boxSize={isExSmScreen ? "20px" : "30px"} />}
               variant="outline"
-              boxSize="60px"
-              
-              mr="50px"
+              boxSize={isExSmScreen ? "40px" : "60px"}
+              mr={isExSmScreen ? "20px" : "50px"}
               onClick={toggleMenu}
             />
           </Flex>
           <Box
-            mt="120px"
+            mt="80px"
             position="absolute"
             top="0px" // Position it right below the header
             left={0}
             width="100%"
             backgroundColor="white"
             transform={`translateY(${isMenuOpen ? 0 : "-100%"})`} // Slide in effect
-            transition="transform 2s" // Apply CSS transitions
+            transition="transform .6s" // Apply CSS transitions
             zIndex={10} // Ensure it's above the header
           >
             <Flex flexDir="column" alignItems="center">
@@ -146,37 +149,46 @@ const Header = () => {
                 }}
               >
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="HOME"
                   isActive={location.pathname === "/"}
                 />
               </Link>
-              <Link to="/showcase" onClick={() => {
+              <Link
+                to="/showcase"
+                onClick={() => {
                   setIsMenuOpen(false);
                   handleScrollToTop();
-                }}>
+                }}
+              >
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="SHOWCASE"
                   isActive={location.pathname === "/showcase"}
                 />
               </Link>
-              <Link to="/about" onClick={() => {
+              <Link
+                to="/about"
+                onClick={() => {
                   setIsMenuOpen(false);
                   handleScrollToTop();
-                }}>
+                }}
+              >
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="ABOUT"
                   isActive={location.pathname === "/about"}
                 />
               </Link>
-              <Link to="/contact" onClick={() => {
+              <Link
+                to="/contact"
+                onClick={() => {
                   setIsMenuOpen(false);
                   handleScrollToTop();
-                }}>
+                }}
+              >
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="CONTACT"
                   isActive={location.pathname === "/contact"}
                 />
@@ -186,7 +198,7 @@ const Header = () => {
         </>
       ) : (
         <>
-          {isFixed && <div style={{ height: "120px" }}></div>}
+          {isFixed && <div style={{ height: "80px" }}></div>}
           <Flex
             className={`header ${isFixed ? "fixed" : ""} ${
               isShrunk ? "shrunk" : ""
@@ -199,19 +211,19 @@ const Header = () => {
             backgroundColor="white"
             color="white"
             justifyContent="space-evenly"
-            height="120px"
+            height="80px"
             opacity={
               (isFixed && !baseOpacity) || (!isFixed && baseOpacity) ? 1 : 0
             }
             transition="opacity 0.5s ease-in-out"
           >
-            <Image boxSize={isFixed ? "80px" : "120px"} src={eliLogo} />
+            <Image boxSize={isFixed ? "80px" : "80px"} src={eliLogo} />
 
             <Flex flexDir="row" justifyContent="center" alignItems="center">
               <Link to="/" onClick={() => handleScrollToTop()}>
                 {" "}
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="HOME"
                   isActive={location.pathname === "/"}
                 />
@@ -219,7 +231,7 @@ const Header = () => {
               <Link to="/showcase" onClick={() => handleScrollToTop()}>
                 {" "}
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="SHOWCASE"
                   isActive={location.pathname === "/showcase"}
                 />
@@ -227,7 +239,7 @@ const Header = () => {
               <Link to="/about" onClick={() => handleScrollToTop()}>
                 {" "}
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="ABOUT"
                   isActive={location.pathname === "/about"}
                 />
@@ -235,7 +247,7 @@ const Header = () => {
               <Link to="/contact" onClick={() => handleScrollToTop()}>
                 {" "}
                 <NavItem
-                  navSize={isSmScreen}
+                  navSize={isLgScreen}
                   title="CONTACT"
                   isActive={location.pathname === "/contact"}
                 />
