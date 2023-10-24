@@ -419,7 +419,7 @@ const Contact = () => {
               <Link
                 rel="noopener noreferrer"
                 target="_blank"
-                to="https://drive.google.com/file/d/1fld3s4yW3fA3BtE7wdQ3vABCn62aM0u3/view?usp=drive_link"
+                to="https://drive.google.com/file/d/1A-rxZoR2pG1X3vrO9iPxxoPNMulkghRN/view?usp=sharing"
               >
                 <Image
                   src={resumeIcon}
