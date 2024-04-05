@@ -2,16 +2,9 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import {
   Box,
-  Image,
-  Text,
   Flex,
-  Card,
-  CardBody,
-  Heading,
-  Button,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ShowcaseCard from "./ShowcaseCard";
 import showcaseData from "../data/showcaseData";
