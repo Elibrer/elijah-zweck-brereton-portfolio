@@ -175,7 +175,7 @@ const Home = () => {
               fontSize={headingSize}
               fontWeight="400"
             >
-              Elijah WHY
+              Elijah
             </Heading>
             <Heading
               as="span"
