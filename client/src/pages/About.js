@@ -109,7 +109,7 @@ const About = () => {
                   get in touch, feel free to reach out to me through the contact
                   form on my website. I believe that effective communication is
                   key to successful collaborations, and I look forward to
-                  discussing how I can contribute to your project's success!
+                  discussing how I can contribute to your projects success!
                 </Text>
               </Flex>
             </Box>
