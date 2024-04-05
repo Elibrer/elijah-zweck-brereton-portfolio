@@ -50,9 +50,9 @@ const Contact = () => {
 
   const [fullName, setFullName] = useState(firstName + " " + lastName);
 
-  useEffect(() => {
-    console.log("All users: ", allUsers);
-  }, [allUsers]);
+  // useEffect(() => {
+  //   console.log("All users: ", allUsers);
+  // }, [allUsers]);
 
   const handleRefetch = () => {
     refetch();

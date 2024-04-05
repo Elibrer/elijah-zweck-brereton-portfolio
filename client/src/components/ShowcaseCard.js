@@ -113,9 +113,10 @@ const pageHeight = useBreakpointValue({
           </Text>
         </Box>
         <Flex flexDir="row"
-        justifyContent="center" 
+         justifyContent={item.deployed ? "center" : "flex-end"}
         alignItems="center" 
         w={fBoxWidth}>
+          {item.deployed ? (
           <Box mr={isLgScreen ? "0px" : "10px"}>
             <Link
               to={item.deployedSite}
@@ -144,7 +145,7 @@ const pageHeight = useBreakpointValue({
                 View Website
               </Box>
             </Link>
-          </Box>
+          </Box>) : null}
           <Box ml={isLgScreen ? "0px" : "10px"}>
             <Link to={item.github} rel="noopener noreferrer" target="_blank">
               <Box

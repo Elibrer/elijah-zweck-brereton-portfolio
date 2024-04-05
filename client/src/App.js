@@ -42,10 +42,10 @@ const client = new ApolloClient({
 
 function App() {
   const location = useLocation();
-
   useEffect(() => {
     console.log("location changed to " + location.pathname);
   }, [location]);
+  
   return (
     <ApolloProvider client={client}>
       <div>
