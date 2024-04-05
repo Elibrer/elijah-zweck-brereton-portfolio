@@ -1,9 +1,15 @@
+/* eslint-disable */
+
 import React from "react";
 import {
+  Text,
   Flex,
   Box,
+  Image,
+  Link,
   Card,
   Heading,
+  Divider,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import ShowcaseCard from "../components/ShowcaseCard";
@@ -11,7 +17,7 @@ import ShowcaseCard from "../components/ShowcaseCard";
 import showcaseData from "../data/showcaseData";
 
 //Information for the showcaseItems:
-//{
+{
   /* <div className="sccards">
           <img
             className="showcaseImg"
@@ -198,7 +204,7 @@ import showcaseData from "../data/showcaseData";
             </a>
           </div>
         </div> */
-//}
+}
 
 const Showcase = () => {
 

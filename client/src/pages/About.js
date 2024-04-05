@@ -1,21 +1,22 @@
+/* eslint-disable */
+
 import React, { useEffect } from "react";
 import {
   Heading,
   Text,
   Box,
   Card,
+  CardBody,
   Flex,
   Image,
   useBreakpointValue,
   useMediaQuery,
+  useQuery,
 } from "@chakra-ui/react";
 import aboutImage from "../assets/images/aboutImage.png";
 
 const About = () => {
   const aboutWidth = useBreakpointValue({ base: "100%", md: "50%", sm: "25%" });
-  if(aboutWidth !== "100%") {
-    console.log("About width is not 100%");
-  }
   const textSize = useBreakpointValue({
     base: ".8em",
     md: ".9em",

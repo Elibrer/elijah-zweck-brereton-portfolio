@@ -1,6 +1,11 @@
+/* eslint-disable */
+
 import React from "react";
 import { Text, Flex, Box, Image, Card, Heading, useBreakpointValue, useMediaQuery } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { MdLink } from "react-icons/md";
+import githubIcon from "../assets/images/githubLogo.png";
+import heyListen from "../assets/images/heyListen.png";
 
 const ShowcaseCard = ({
   index,

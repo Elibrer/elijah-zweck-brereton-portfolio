@@ -1,4 +1,7 @@
 // This is the main file for the portfolio website. It is the first file that is run when the website is loaded.
+
+/* eslint-disable */
+
 import React, { useEffect } from "react";
 import "./App.css";
 import { ChakraProvider, Box, Flex } from "@chakra-ui/react";

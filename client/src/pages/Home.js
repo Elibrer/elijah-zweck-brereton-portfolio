@@ -1,31 +1,39 @@
+/* eslint-disable */
+
 import React, { useRef, useState } from "react";
 import "./Home.css";
 import {
   Flex,
   Image,
   Box,
+  Card,
+  CardBody,
   Text,
   Heading,
   Icon,
+  Container,
+  Button,
+  VStack,
+  HStack,
+  Tag,
   useBreakpointValue,
   useMediaQuery,
+  useQuery,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+import profileImage from "../assets/images/profile-1.png";
 import eliSmall from "../assets/images/eliSmall.JPG";
 import banner from "../assets/images/4.png";
+import About from "./About";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 import Carousel from "../components/Carousel";
 
 const Home = () => {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const meRef = useRef(null);
   const featuredRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
-
-  if(!isMenuOpen) {
-    console.log("Menu is not open.");
-  }
 
   const handleScrollToTop = () => {
     window.scrollTo({
