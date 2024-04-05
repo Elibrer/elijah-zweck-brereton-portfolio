@@ -1,10 +1,6 @@
 import sportsTeamManager from "../assets/images/stmBig.png";
 import weatheringHeights from "../assets/images/weatheringHeights.png";
-import outfitForecast from "../assets/images/outfit-forecast.png";
-import zweckTechBlog from "../assets/images/zweckTechBlog.png";
-import githubIcon from "../assets/images/githubLogo.png";
-import pwaTextEditor from "../assets/images/pwaapp.png";
-import socialNetworkApi from "../assets/images/socialNetworkApi.png";
+
 import heyListen from "../assets/images/heyListenBig.png";
 import zweckHosting from "../assets/images/zweckHosting.png";
 

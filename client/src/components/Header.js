@@ -2,34 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import {
   Flex,
-  Text,
-  Divider,
-  Avatar,
-  Heading,
   Box,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
   Image,
-  useBreakpointValue,
   useMediaQuery,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
   IconButton,
-  useDisclosure,
-  Slide,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 import { Link, useLocation } from "react-router-dom";
 import NavItem from "./NavItem";
-import zweckLogo from "../assets/images/zweckLogo.png";
 import eliLogo from "../assets/images/eliLogo.png";
-
-import Sidebar from "./Sidebar";
 
 const Header = () => {
   const location = useLocation();
@@ -37,8 +21,12 @@ const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
   const [isShrunk, setIsShrunk] = useState(false);
   const [baseOpacity, setBaseOpacity] = useState(true);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
+
+  setIsFixed(false);
+  setIsShrunk(false);
+  setBaseOpacity(true);
 
   const [isLgScreen] = useMediaQuery("(max-width: 992px)");
 

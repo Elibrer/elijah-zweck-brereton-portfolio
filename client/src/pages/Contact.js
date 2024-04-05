@@ -4,8 +4,8 @@ import linkedinLogo from "../assets/images/linkedin.png";
 import resumeIcon from "../assets/images/resumeIcon.png";
 import githubIcon from "../assets/images/githubLogo.png";
 import { useQuery, useMutation } from "@apollo/client";
-import { UPDATE_USER, ADD_USER, DELETE_USER } from "../utils/mutations";
-import { GET_USERS, GET_USER } from "../utils/queries";
+import { UPDATE_USER, ADD_USER } from "../utils/mutations";
+import { GET_USERS } from "../utils/queries";
 import { Link } from "react-router-dom";
 import {
   Heading,
@@ -26,7 +26,6 @@ const Contact = () => {
   const { data: allUsers, refetch } = useQuery(GET_USERS);
   const [updateUser] = useMutation(UPDATE_USER);
   const [addUser] = useMutation(ADD_USER);
-  const [deleteUser] = useMutation(DELETE_USER);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -43,6 +42,10 @@ const Contact = () => {
   const [fieldRequired, setFieldRequired] = useState("");
   const [submitForm, setSubmitForm] = useState("");
   const [submitPressed, setSubmitPressed] = useState(false);
+
+  if(!submitForm) {
+    console.log(submitForm);
+  }
 
   const [nameEl, setNameEl] = useState("Name");
   const [countryEl, setCountryEl] = useState("Country");

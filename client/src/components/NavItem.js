@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
-import { Flex, Text, Icon, Menu, MenuButton, Box, useBreakpointValue, useMediaQuery } from "@chakra-ui/react";
+import React from "react";
+import { Flex, Text, Menu, MenuButton, Box } from "@chakra-ui/react";
 
 export default function NavItem({ icon, title, isActive, navSize }) {
-
-
   return (
-    <Box display="flex" w={navSize ? "300px" : "130px"} p={navSize ? (1) : (2)} alignItems="center" justifyContent="center" textAlign="center">
+    <Box
+      display="flex"
+      w={navSize ? "300px" : "130px"}
+      p={navSize ? 1 : 2}
+      alignItems="center"
+      justifyContent="center"
+      textAlign="center"
+    >
       <Menu>
         <Box
-        w="100%"
+          w="100%"
           color={isActive ? "white" : "gray.700"}
-          borderRadius={navSize ? (8) : (8)}
+          borderRadius={navSize ? 8 : 8}
           p={2}
           background={
             isActive
@@ -32,7 +37,13 @@ export default function NavItem({ icon, title, isActive, navSize }) {
         >
           <MenuButton w="100%">
             <Flex justify="center" align="center">
-              <Text fontSize="14px" m="0" letterSpacing="3px" pl="3px" fontWeight="bold">
+              <Text
+                fontSize="14px"
+                m="0"
+                letterSpacing="3px"
+                pl="3px"
+                fontWeight="bold"
+              >
                 {title}
               </Text>
             </Flex>

@@ -12,9 +12,15 @@ const Footer = () => {
   const [bgColor, setBgColor] = useState("slategray");
   const [textColor, setTextColor] = useState("white");
 
+  if(bgColor === "blue") {
+    setTextColor("white");
+  }
+  
   useEffect(() => {
     setPath(window.location.pathname);
-
+  }, [setPath]); // Add setPath as a dependency
+  
+  useEffect(() => {
     switch (path) {
       case "/":
         setBgColor("slategray");
@@ -35,7 +41,7 @@ const Footer = () => {
         setBgColor("slategray");
         break;
     }
-  });
+  }, [path]);
 
   return (
     <Flex
