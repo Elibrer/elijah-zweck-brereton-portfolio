@@ -6,8 +6,8 @@ import linkedinLogo from "../assets/images/linkedin.png";
 import resumeIcon from "../assets/images/resumeIcon.png";
 import githubIcon from "../assets/images/githubLogo.png";
 import { useQuery, useMutation } from "@apollo/client";
-import { UPDATE_USER, ADD_USER, DELETE_USER } from "../utils/mutations";
-import { GET_USERS, GET_USER } from "../utils/queries";
+import { UPDATE_USER, ADD_USER, DELETE_USER } from "../client/src/utils/mutations";
+import { GET_USERS, GET_USER } from "../client/src/utils/queries";
 import { Link } from "react-router-dom";
 import {
   Heading,
