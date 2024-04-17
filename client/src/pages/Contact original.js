@@ -23,7 +23,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 
-const Contact = () => {
+const ContactOriginal = () => {
   //const { data: user } = useQuery(GET_USER);
   const { data: allUsers, refetch } = useQuery(GET_USERS);
   const [updateUser] = useMutation(UPDATE_USER);
@@ -744,4 +744,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactOriginal;

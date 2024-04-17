@@ -5,9 +5,9 @@ const resolvers = {
   Query: {
     /*------------User------------*/
 
-    getUsers: async (parent, args) => {
-      return User.find().select("-__v");
-    },
+    // getUsers: async (parent, args) => {
+    //   return User.find().select("-__v");
+    // },
     getUser: async (parent, args) => {
       return User.findOne({ _id: args._id })
         .select("-__v")
