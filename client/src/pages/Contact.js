@@ -319,14 +319,25 @@ const Contact = () => {
               </a>
             </Text>
             <Text>
-              Ph. :
+              Ph. (Aus):
               <a
                 rel="noopener noreferrer"
                 target="_blank"
                 href="tel:+61423047693"
               >
                 {" "}
-                0423 047 693
+                +61 0423 047 693
+              </a>
+            </Text>
+            <Text>
+              Ph. (Spain):
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="tel:+34711050251"
+              >
+                {" "}
+                +34 711 050 251
               </a>
             </Text>
             <Text

@@ -23,6 +23,7 @@
         "@fontsource/source-sans-pro": "^5.0.8",
         "@fontsource/titillium-web": "^5.0.8",
         "dotenv": "^16.3.1",
+        "ky": "^1.2.3",
         "mongodb": "^6.5.0",
         "react-icons": "^4.10.1",
         "react-player": "^2.12.0",
