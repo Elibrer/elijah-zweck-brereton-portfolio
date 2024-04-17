@@ -6,11 +6,9 @@ import linkedinLogo from "../assets/images/linkedin.png";
 import resumeIcon from "../assets/images/resumeIcon.png";
 import githubIcon from "../assets/images/githubLogo.png";
 import { useQuery, useMutation } from "@apollo/client";
-// import { UPDATE_USER, ADD_USER, DELETE_USER } from "../utils/mutations";
-// import { GET_USERS, GET_USER } from "../utils/queries";
+import { UPDATE_USER, ADD_USER, DELETE_USER } from "../utils/mutations";
+import { GET_USERS, GET_USER } from "../utils/queries";
 import { Link } from "react-router-dom";
-import axios from "axios";
-
 import {
   Heading,
   Flex,
@@ -26,6 +24,12 @@ import {
 } from "@chakra-ui/react";
 
 const Contact = () => {
+  //const { data: user } = useQuery(GET_USER);
+  const { data: allUsers, refetch } = useQuery(GET_USERS);
+  const [updateUser] = useMutation(UPDATE_USER);
+  const [addUser] = useMutation(ADD_USER);
+  const [deleteUser] = useMutation(DELETE_USER);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -39,7 +43,7 @@ const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [thanksMessage, setThanksMessage] = useState("");
   const [fieldRequired, setFieldRequired] = useState("");
-  const [submitForm, setSubmitForm] = useState({});
+  const [submitForm, setSubmitForm] = useState("");
   const [submitPressed, setSubmitPressed] = useState(false);
 
   const [nameEl, setNameEl] = useState("Name");
@@ -48,41 +52,24 @@ const Contact = () => {
 
   const [fullName, setFullName] = useState(firstName + " " + lastName);
 
-  // useEffect(() => {
-
-  //   if (submitForm !== "") {
-  //     sendEmail();
-  //   }
-  // }, [submitForm]);
-
   useEffect(() => {
-    setFullName(firstName + " " + lastName);
+    console.log("All users: ", allUsers);
+  }, [allUsers]);
 
-    const formData = {
-      Name: shareAgree ? fullName : "Anonymous",
-      Email: email,
-      Enquiry: enquiry,
-    };
-  
-    // Add Phone and Country fields only if shareAgree is true
-    if (shareAgree) {
-      formData.Phone = phone;
-      formData.Country = country;
-    }
-  
-    // Update the submitForm state with the formData object
-    setSubmitForm(formData);
-  }, [firstName, lastName, email, phone, country, enquiry, shareAgree]);
+  const handleRefetch = () => {
+    refetch();
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setTimeout(() => {
-      console.log("submit pressed");
-    }, 1000);
-
     setThanksMessage("");
     setSubmitPressed(true);
+
+    const existingUser = allUsers.getUsers.find((user) => user.email === email);
+
+    const newEnquiryArr = existingUser
+      ? [...existingUser.enquiries, enquiry]
+      : [enquiry];
 
     if (
       (shareAgree === true &&
@@ -93,7 +80,7 @@ const Contact = () => {
       return;
     }
     setSubmitMessage("");
-    // setFullName(firstName + " " + lastName);
+    setFullName(firstName + " " + lastName);
 
     if (countryList === "Other") {
       if (otherCountry) {
@@ -108,14 +95,12 @@ const Contact = () => {
       setSubmitMessage("");
     }
 
-    const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
+    if (shareAgree === true) {
+      const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
       if (!emailRegex.test(email)) {
         setSubmitMessage("Please enter a valid email address.");
         return;
       }
-
-    if (shareAgree === true) {
-      
       const phoneRegex = /^(?:\+61|0)[4578]([0-9]{8})$/;
       if (!phoneRegex.test(phone) && phone !== "") {
         setSubmitMessage(
@@ -124,26 +109,73 @@ const Contact = () => {
         return;
       }
 
-      setSubmitForm((prevSubmitForm) => ({
-        ...prevSubmitForm,
+      const userData = {
+        id: existingUser ? existingUser._id : "",
+        firstName: firstName,
+        lastName: lastName,
+        country: country,
+        phoneNumber: phone,
+        email: email,
+        enquiries: newEnquiryArr,
+      };
+
+      if (existingUser) {
+        console.log("User exists");
+        const updatedUser = await updateUser({ variables: userData });
+        console.log(updatedUser);
+      } else {
+        console.log("User doesn't exist");
+        const addedUser = await addUser({
+          variables: {
+            firstName: firstName,
+            lastName: lastName,
+            country: country,
+            phoneNumber: phone,
+            email: email,
+            enquiries: newEnquiryArr,
+          },
+        });
+        console.log(addedUser);
+      }
+
+      setSubmitForm({
         Name: fullName,
         Email: email,
         Phone: phone,
         Country: country,
         Enquiry: enquiry,
-      }));
+      });
     } else {
-      setSubmitForm((prevSubmitForm) => ({
-        ...prevSubmitForm,
+      console.log("Egg");
+
+      const userData = {
+        id: existingUser ? existingUser._id : "",
+        email: email,
+        enquiries: newEnquiryArr,
+      };
+      if (existingUser) {
+        console.log("User exists");
+        const updatedUser = await updateUser({ variables: userData });
+        console.log(updatedUser);
+      } else {
+        console.log("User doesn't exist");
+        const addedUser = await addUser({
+          variables: {
+            firstName: "Anonymous",
+            email: email,
+            enquiries: newEnquiryArr,
+          },
+        });
+        console.log(addedUser);
+      }
+
+      setSubmitForm({
         Name: "Anonymous",
-        Email: email,
         Enquiry: enquiry,
-      }));
+      });
     }
 
-    console.log(submitForm);
-
-    sendEmail(submitForm);
+    handleRefetch();
 
     setFirstName("");
     setLastName("");
@@ -161,6 +193,10 @@ const Contact = () => {
       "Thank you for your enquiry. I will get back to you as soon as possible."
     );
   };
+
+  // useEffect(() => {
+  //   console.log(submitForm);
+  // }, [submitForm]);
 
   const checkOnBlur = (e) => {
     console.log(e.target.value);
@@ -190,19 +226,6 @@ const Contact = () => {
         default:
           setFieldRequired("");
       }
-    }
-  };
-
-  const sendEmail = async (submitForm) => {
-    console.log("send email");
-    console.log(submitForm);
-
-    try {
-      const response = await axios.post("/send-email", submitForm);
-      console.log(response); // Log the response if needed
-    } catch (error) {
-      console.error("Error sending email:", error);
-      setSubmitMessage("Error sending email");
     }
   };
 
@@ -271,7 +294,8 @@ const Contact = () => {
       overflow="hidden"
     >
       <Flex
-        mt={isLgScreen ? "0px" : "70px"}
+              mt={isLgScreen ? "0px" : "70px"}
+
         className="ctcards container"
         flexDir={isLgScreen ? "row" : "column"}
         h="auto"
@@ -412,7 +436,7 @@ const Contact = () => {
           </Box>
         </Box>
         <Box
-          mt={isLgScreen ? "0px" : "70px"}
+        mt={isLgScreen ? "0px" : "70px"}
           display="flex"
           position="relative"
           flexWrap="wrap"

@@ -1,6 +1,11 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const { ApolloServer } = require('apollo-server-express');
+const { sendEmail, emailMiddleware } = require('./routes/index');
+
+
+
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -12,8 +17,17 @@ const server = new ApolloServer({
   resolvers,
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// API endpoint to handle form submissions
+app.post('/send-email', emailMiddleware, (req, res) => {
+  res.status(200).send('Email sent successfully');
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
