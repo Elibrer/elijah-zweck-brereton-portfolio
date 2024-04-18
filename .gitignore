@@ -18,11 +18,10 @@
 .env.test.local
 .env.production.local
 
+/hello
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-oldCode.js
-test.css
-unused
 ``` 

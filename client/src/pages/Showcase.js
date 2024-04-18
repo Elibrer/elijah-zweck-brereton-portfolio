@@ -268,7 +268,7 @@ const Showcase = () => {
         {showcaseData.map((item, index) => (
           <Flex flexDir="column">
           <ShowcaseCard
-            key={index}
+            index={index}
             title={item.title}
             alt={item.alt}
             description={item.description}
