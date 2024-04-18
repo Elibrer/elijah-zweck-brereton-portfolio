@@ -278,6 +278,7 @@ const Showcase = () => {
             item={item}
             bg="var(--navy)"
             shadow={true}
+            key={index}
           />
           </Flex>
         ))}

@@ -20,18 +20,18 @@ import showcaseData from "../data/showcaseData";
 
 const CarouselPage = () => {
   const boxWidth = useBreakpointValue({
-    base: "370px",       // On very small devices (like smartphones)
-    sm: "480px",        // On small devices (like tablets)
-    md: "650px",        // On medium-sized devices (like desktops)
-    lg: "780px",      // On large devices
-    xl: "780px"       // On very large devices (like large screens)
+    base: "370px", // On very small devices (like smartphones)
+    sm: "480px", // On small devices (like tablets)
+    md: "650px", // On medium-sized devices (like desktops)
+    lg: "780px", // On large devices
+    xl: "780px", // On very large devices (like large screens)
   });
 
   return (
     <Flex flexDir="column" justifyContent="center" alignItems="center">
       <Box w={boxWidth}>
         <Carousel
-        w={boxWidth}
+          w={boxWidth}
           autoPlay={true}
           interval={5000}
           showThumbs={false}
@@ -41,7 +41,21 @@ const CarouselPage = () => {
           showArrows={false}
         >
           {showcaseData.map((item, index) => (
-            <ShowcaseCard item={item} bg="slategray" shadow={false} />
+            <ShowcaseCard
+              index={index}
+              title={item.title}
+              alt={item.alt}
+              description={item.description}
+              image={item.image}
+              github={item.github}
+              deployedSite={item.deployedSite}
+              item={item}
+              bg="var(--navy)"
+              shadow={true}
+              bg="slategray"
+              shadow={false}
+              key={index}
+            />
           ))}
         </Carousel>
       </Box>

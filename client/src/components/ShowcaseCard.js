@@ -18,6 +18,7 @@ const ShowcaseCard = ({
   item,
   bg,
   shadow,
+  key,
 }) => {
   console.log(
     "ShowcaseCard props: ",

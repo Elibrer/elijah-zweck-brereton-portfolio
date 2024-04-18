@@ -41,4 +41,4 @@ const sendEmail = (name, email, phone, country, enquiry) => {
   });
 };
 
-module.exports = { sendEmail };
+module.exports = { sendEmail }
