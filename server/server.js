@@ -20,10 +20,10 @@ const server = new ApolloServer({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use('/send-email', emailMiddleware);
+
+
 // API endpoint to handle form submissions
-app.post('/send-email', emailMiddleware, (req, res) => {
-  res.status(200).send('Email sent successfully');
-});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -33,6 +33,10 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
+
+app.post('/send-email', emailMiddleware, (req, res) => {
+  res.status(200).send('Email sent successfully');
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
