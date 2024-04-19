@@ -7,6 +7,9 @@ const { sendEmail, emailMiddleware } = require('./routes/index');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const cors = require('cors');
+
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -16,6 +19,8 @@ const server = new ApolloServer({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors({ origin: 'https://elibrer.com' }));
 
 app.use('/send-email', emailMiddleware);
 app.post('/send-email', emailMiddleware, (req, res) => {
