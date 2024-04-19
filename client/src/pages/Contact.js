@@ -108,7 +108,7 @@ const Contact = () => {
       setSubmitMessage("");
     }
 
-    const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
+    const emailRegex = /^([a-zA-Z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
       if (!emailRegex.test(email)) {
         setSubmitMessage("Please enter a valid email address.");
         return;

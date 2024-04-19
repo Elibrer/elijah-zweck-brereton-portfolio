@@ -17,7 +17,8 @@ const server = new ApolloServer({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/send-email', emailMiddleware);
+// app.use('/send-email', emailMiddleware);
+
 app.post('/send-email', emailMiddleware, (req, res) => {
     res.status(200).send('Email sent successfully');
 });
