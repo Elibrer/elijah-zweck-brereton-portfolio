@@ -1,19 +1,47 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require('firebase-functions');
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const { ApolloServer } = require('apollo-server-express');
+const { sendEmail, emailMiddleware } = require('./routes/index');
+const { typeDefs, resolvers } = require('./schemas');
+const db = require('./config/connection');
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+const PORT = process.env.PORT || 3001;
+const app = express();
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+});
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+app.use('/send-email', emailMiddleware);
+app.post('/send-email', emailMiddleware, (req, res) => {
+    res.status(200).send('Email sent successfully');
+});
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+// Start Apollo Server
+const startApolloServer = async () => {
+    await server.start();
+    server.applyMiddleware({ app });
+    db.once('open', () => {
+        console.log(`🌍 Now listening on localhost:${PORT}`);
+        console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    });
+};
+
+startApolloServer();
+
+// Export the Express app as a Cloud Function
+exports.api = functions.https.onRequest(app);

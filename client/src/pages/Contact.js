@@ -198,7 +198,7 @@ const Contact = () => {
     console.log(submitForm);
 
     try {
-      const response = await axios.post("/send-email", submitForm);
+      const response = await axios.post("https://us-central1-elijah-brereton-portfolio.cloudfunctions.net/api/send-email", submitForm);
       console.log(response); // Log the response if needed
     } catch (error) {
       console.error("Error sending email:", error);
