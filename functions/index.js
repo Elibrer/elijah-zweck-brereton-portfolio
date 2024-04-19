@@ -22,7 +22,10 @@ app.use(bodyParser.json());
 
 app.use(cors({ origin: 'https://elibrer.com' }));
 
+/*
 app.use('/send-email', emailMiddleware);
+*/
+
 app.post('/send-email', emailMiddleware, (req, res) => {
     res.status(200).send('Email sent successfully');
 });
